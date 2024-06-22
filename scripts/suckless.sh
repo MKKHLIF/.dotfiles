@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ######## Enhanced dwm & st Setup ########
 
 # Update system and install essential packages
