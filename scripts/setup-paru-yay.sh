@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Ensure the script is run as root
-if [[ "$EUID" -ne 0 ]]; then
-  echo "Please run as root"
-  exit 1
-fi
-
 # Update package list and install essential tools
 echo "Updating package list and installing essential tools..."
 sudo pacman -Sy --noconfirm git base-devel
