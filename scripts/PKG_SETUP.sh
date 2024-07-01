@@ -4,27 +4,22 @@
 echo "Updating package list and installing common development tools..."
 sudo pacman -Sy --noconfirm git base-devel neovim
 
-# Install C and C++ development tools
-echo "Installing C and C++ development tools..."
-sudo pacman -Sy --noconfirm gcc clang cmake gdb
 
-# Install Java development tools
-echo "Installing Java development tools..."
-sudo pacman -Sy --noconfirm jdk-openjdk openjdk-doc openjdk-src
+# Install development tools
+echo "Installing common tools & packages..."
 
-# Install Python development tools
-echo "Installing Python development tools..."
-sudo pacman -Sy --noconfirm python python-pip ipython
+while read package; do
+    yay -S --noconfirm --needed $package
+done < ../packages/common_packages.list
 
-# Install JavaScript development tools
-echo "Installing JavaScript development tools..."
-sudo pacman -Sy --noconfirm nodejs npm yarn
+echo "common tools & packages installed successfully."
 
-# Install additional useful development tools
-echo "Installing additional useful development tools..."
-sudo pacman -Sy --noconfirm docker docker-compose
-sudo systemctl start docker
-sudo systemctl enable docker
-sudo usermod -aG docker $USER
 
-echo "Development environment setup completed successfully."
+# Install development tools
+echo "Installing development tools & packages..."
+
+while read package; do
+    yay -S --noconfirm --needed $package
+done < ../packages/dev_packages.list
+
+echo "development tools & packages installed successfully."
