@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Ensure the script is run as root
-if [[ "$EUID" -ne 0 ]]; then
-  echo "Please run as root"
-  exit 1
-fi
-
 # Update system and install common development tools
 echo "Updating package list and installing common development tools..."
 sudo pacman -Sy --noconfirm git base-devel neovim
