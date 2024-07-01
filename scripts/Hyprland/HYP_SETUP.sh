@@ -29,5 +29,8 @@ done
 echo "Setting configuration files..."
 bash ./CONFIG_FILES.sh
 
+echo "Setting wlsunset..."
+bash ./wlsunset_setup.sh
+
 echo "Setting SDDM..."
 bash ./SDDM_SETUP.sh

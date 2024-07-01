@@ -23,6 +23,7 @@ echo "Mirrorlist updated successfully"
 # echo "pacman configured for parallel downloads."
 
 # Update package database and upgrade system
+
 echo "Updating package database and upgrading system..."
 pacman -Syu --noconfirm
 

@@ -4,4 +4,6 @@ docker
 docker-compose
 npm
 yarn
+ninja
+meson
 jetbrains-toolbox
