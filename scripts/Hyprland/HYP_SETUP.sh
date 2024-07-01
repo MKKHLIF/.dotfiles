@@ -26,4 +26,8 @@ for package in "${PACKAGES[@]}"; do
 done
 
 
+echo "Setting configuration files..."
+bash ./CONFIG_FILES.sh
 
+echo "Setting SDDM..."
+bash ./SDDM_SETUP.sh

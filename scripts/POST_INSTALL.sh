@@ -12,15 +12,15 @@ reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 echo "Mirrorlist updated successfully"
 
 # Configure pacman to run in parallel with 5 packages at the same time
-echo "Configuring pacman to run in parallel with 5 packages at the same time..."
-PACMAN_CONF="/etc/pacman.conf"
-if ! grep -q "^ParallelDownloads" "$PACMAN_CONF"; then
-    echo "ParallelDownloads = 5" >> "$PACMAN_CONF"
-else
-    sed -i 's/^ParallelDownloads.*/ParallelDownloads = 5/' "$PACMAN_CONF"
-fi
+# echo "Configuring pacman to run in parallel with 5 packages at the same time..."
+# PACMAN_CONF="/etc/pacman.conf"
+# if ! grep -q "^ParallelDownloads" "$PACMAN_CONF"; then
+#     echo "ParallelDownloads = 5" >> "$PACMAN_CONF"
+# else
+#     sed -i 's/^ParallelDownloads.*/ParallelDownloads = 5/' "$PACMAN_CONF"
+# fi
 
-echo "pacman configured for parallel downloads."
+# echo "pacman configured for parallel downloads."
 
 # Update package database and upgrade system
 echo "Updating package database and upgrading system..."
