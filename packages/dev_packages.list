@@ -7,4 +7,5 @@ yarn
 ninja
 meson
 boost
+catch2
 jetbrains-toolbox
