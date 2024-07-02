@@ -10,6 +10,7 @@ fi
 # Packages to install
 PACKAGES=(
     "sddm"
+    "dolphin"
     "kitty"
     "wofi"
     "hyprland"
