@@ -11,6 +11,7 @@ rm -rf "$CONFIG_DIR/hypr"
 rm -rf "$CONFIG_DIR/hyprpaper"
 rm -rf "$CONFIG_DIR/gammastep"
 rm -rf "$CONFIG_DIR/nvim"
+rm -rf "$CONFIG_DIR/waybar"
 
 # Create configuration directories
 mkdir -p "$CONFIG_DIR/kitty"
@@ -19,12 +20,14 @@ mkdir -p "$CONFIG_DIR/hypr"
 mkdir -p "$CONFIG_DIR/hyprpaper"
 mkdir -p "$CONFIG_DIR/gammastep"
 mkdir -p "$CONFIG_DIR/nvim"
+mkdir -p "$CONFIG_DIR/waybar"
 
 # Link configuration files
 ln -sf "$GIT_DIR/configs/kitty.conf" "$CONFIG_DIR/kitty/kitty.conf"
-# Uncomment the following lines if you have wofi configuration files
 # ln -sf "$GIT_DIR/configs/wofi/config" "$CONFIG_DIR/wofi/config"
 # ln -sf "$GIT_DIR/configs/wofi/style.css" "$CONFIG_DIR/wofi/style.css"
+ln -sf "$GIT_DIR/configs/waybar/config.jsonc" "$CONFIG_DIR/waybar/config.jsonc"
+ln -sf "$GIT_DIR/configs/waybar/style.css" "$CONFIG_DIR/waybar/style.css"
 ln -sf "$GIT_DIR/configs/hyprland.conf" "$CONFIG_DIR/hypr/hyprland.conf"
 ln -sf "$GIT_DIR/configs/hyprpaper.conf" "$CONFIG_DIR/hyprpaper/hyprpaper.conf"
 ln -sf "$GIT_DIR/configs/nvim/init.lua" "$CONFIG_DIR/nvim/init.lua"
