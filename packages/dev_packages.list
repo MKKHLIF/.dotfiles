@@ -2,10 +2,11 @@ visual-studio-code-bin
 neovim
 docker
 docker-compose
+jetbrains-toolbox
 npm
 yarn
 ninja
 meson
 boost
 catch2
-jetbrains-toolbox
+cmake
