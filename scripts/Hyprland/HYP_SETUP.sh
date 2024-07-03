@@ -15,6 +15,7 @@ PACKAGES=(
     "wofi"
     "hyprland"
     "hyprpaper"
+    "waybar"
     "wayland"
     "xorg-xwayland"
     "xdg-desktop-portal-hyprland"
