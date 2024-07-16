@@ -81,9 +81,9 @@ SCRIPT_DIR=$(dirname "$0")
 echo "Updating package list and installing common development tools..."
 sudo pacman -Sy --noconfirm git base-devel neovim vi
 
-install_packages "$SCRIPT_DIR/../packages/system.list" "system packages"
-install_packages "$SCRIPT_DIR/../packages/software.list" "software & tools"
-install_packages "$SCRIPT_DIR/../packages/development.list" "development tools"
+install_packages "$SCRIPT_DIR/packages/system.list" "system packages"
+install_packages "$SCRIPT_DIR/packages/software.list" "software & tools"
+install_packages "$SCRIPT_DIR/packages/development.list" "development tools"
 
 
 echo "Setup process completed successfully!"

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # if [ "$(id -u)" -ne 0 ]; then
 #   echo "This script must be run as root" 1>&2
 #   exit 1
@@ -28,7 +29,7 @@ case $os_choice in
     ;;
 esac
 
-echo "Are you on Arch or OpenSUSE? (Type 'dwm' or 'hyprland' or 'both'):"
+echo "Do you wish to install DWM or HYPRLAND ? (Type 'dwm' or 'hyprland' or 'both'):"
 read dm_choice
 
 case $dm_choice in
@@ -38,12 +39,11 @@ case $dm_choice in
     ;;
   hyprland)
     echo "Setting up Hyprland..."
-    ./scripts/display_manager/hyprland_setup.sh
+    sudo ./scripts/display_manager/hyprland_setup.sh
     ;;
   both)
     echo "Setting up both DWM and Hyprland..."
-    ./scripts/display_manager/dwm_setup.sh
-    ./scripts/display_manager/hyprland_setup.sh
+    ./scripts/display_manager/dwm_setup.sh && ./scripts/display_manager/hyprland_setup.sh
     ;;
   *)
     echo "Invalid option. Please run the script again and choose either 'arch' or 'opensuse'."

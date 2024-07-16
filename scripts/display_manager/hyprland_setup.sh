@@ -68,11 +68,11 @@ DISPLAY_MANAGERS=(
 )
 
 for dm in "${DISPLAY_MANAGERS[@]}"; do
-    systemctl stop "$dm" 2>/dev/null
-    systemctl disable "$dm" 2>/dev/null
+    sudo systemctl stop "$dm" 2>/dev/null
+    sudo systemctl disable "$dm" 2>/dev/null
 done
 
-systemctl enable sddm.service
-systemctl start sddm.service
+sudo systemctl enable sddm.service
+sudo systemctl start sddm.service
 # ============================== SDDM SETUP =================================== 
 
