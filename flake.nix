@@ -5,15 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, ... }:
+  outputs = { self, nixpkgs, ... }: 
     let 
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
-        system = lib.nixosSystem {
+        nixos = lib.nixosSystem {
           system = "x86_64-linux";
-	 modules = [./configuration.nix];
+          modules = [ ./system/configuration.nix ];
         };
       };
     };
 }
+
