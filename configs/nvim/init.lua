@@ -1,2 +1,0 @@
-require("mk")
-print("Hello")
