@@ -22,7 +22,7 @@
       homeConfigurations = {
         mk = home-manager.lib.homeManagerConfiguration {
 	  inherit pkgs;
-	  modules = [ /home/mk/.dotfiles/home.nix ];
+	  modules = [ ./home.nix ];
         };
       };
     };
