@@ -75,27 +75,67 @@
   programs.home-manager.enable = true;
 
   programs.zsh = {
-  enable = true;
-  enableCompletion = true;
-  autosuggestion.enable = true;
-  syntaxHighlighting.enable = true;
-
-  shellAliases = {
-    ll = "ls -l";
-    update = "sudo nixos-rebuild switch";
-  };
-  history = {
-    size = 10000;
-    path = "${config.xdg.dataHome}/zsh/history";
-  };
-  
-  oh-my-zsh = {
     enable = true;
-    plugins = [ "git" ];
-    theme = "robbyrussell";
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      update = "sudo nixos-rebuild switch";
+    };
+    history = {
+      size = 10000;
+      path = "${config.xdg.dataHome}/zsh/history";
+    };
+    
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      theme = "robbyrussell";
+    };
+
   };
 
+ programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      nvim-treesitter.withAllGrammars
+      plenary-nvim
+      gruvbox-material
+      mini-nvim
+      presence-nvim  # Add this line for Discord Rich Presence
+    ];
+    extraConfig = ''
+      lua << EOF
+      require("presence"):setup({
+        auto_update         = true,
+        neovim_image_text   = "The One True Text Editor",
+        main_image          = "neovim",
+        client_id           = "793271441293967371",
+        log_level           = nil,
+        debounce_timeout    = 10,
+        enable_line_number  = false,
+        blacklist           = {},
+        buttons             = true,
+        file_assets         = {},
+        show_time           = true,
 
-};
+        editing_text        = "Editing %s",
+        file_explorer_text  = "Browsing %s",
+        git_commit_text     = "Committing changes",
+        plugin_manager_text = "Managing plugins",
+        reading_text        = "Reading %s",
+        workspace_text      = "Working on %s",
+        line_number_text    = "Line %s out of %s",
+      })
+      EOF
+    '';
+  };
 
 } 
