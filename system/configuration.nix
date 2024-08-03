@@ -86,17 +86,14 @@
    fonts.packages = with pkgs; [
      (nerdfonts.override { fonts = [ "JetBrainsMono" "DroidSansMono" ]; })
    ];
-  # Enable zsh
-  programs.zsh.enable = true;
 
-  # Enable Oh-my-zsh
-  programs.zsh.ohMyZsh = {
-    enable = true;
-    plugins = [ "git" "sudo" "docker" "kubectl" ];
-  };
-  users.defaultUserShell = pkgs.zsh;
    networking.firewall.allowedTCPPorts = [ 57621 ];
    networking.firewall.allowedUDPPorts = [ 5353 ];
+  
+   users.defaultUserShell = pkgs.zsh;
+   environment.shells = with pkgs; [ zsh ];
+   programs.zsh.enable = true;  
+
 
    users.users.mk = {
      isNormalUser = true;
