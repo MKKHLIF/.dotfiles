@@ -19,7 +19,7 @@
 
   nixpkgs.config.allowUnfree = true;
   
-  hardware.graphics.enable = true;
+  hardware.opengl.enable = true;
   hardware.nvidia = {
     prime = { 
       offload = {
@@ -95,8 +95,9 @@
     plugins = [ "git" "sudo" "docker" "kubectl" ];
   };
   users.defaultUserShell = pkgs.zsh;
-  networking.firewall.allowTCPPorts = [57621];
-  networking.firewall.allowUDPPorts = [5353];
+   networking.firewall.allowedTCPPorts = [ 57621 ];
+   networking.firewall.allowedUDPPorts = [ 5353 ];
+
    users.users.mk = {
      isNormalUser = true;
      extraGroups = [ "wheel" "libvirtd" "networkmanager" "video" "audio" "docker"];
@@ -118,6 +119,7 @@
       wlsunset
       obsidian
       jetbrains-toolbox
+      zathura
      ];
    };
 
