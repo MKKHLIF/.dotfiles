@@ -99,7 +99,6 @@
      isNormalUser = true;
      extraGroups = [ "wheel" "libvirtd" "networkmanager" "video" "audio" "docker"];
      packages = with pkgs; [
-      neovim
       brave
       arandr
       vscode
