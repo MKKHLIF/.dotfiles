@@ -118,6 +118,7 @@
       wlsunset
       obsidian
       jetbrains-toolbox
+      zathura
      ];
    };
 
