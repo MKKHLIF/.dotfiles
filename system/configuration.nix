@@ -130,6 +130,12 @@
     neofetch
     git
     pciutils
+    
+    wineWowPackages.stable
+    wineWowPackages.staging
+    winetricks
+    wineWowPackages.waylandFull
+
   ];
 
   programs.thunar.enable = true;
