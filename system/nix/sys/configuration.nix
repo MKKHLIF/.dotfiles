@@ -7,7 +7,6 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking.networkmanager.enable = true;
@@ -51,7 +50,6 @@
 
   services.xserver = {
     enable = true;
-    videoDrivers = ["nvidia"];
     desktopManager = {
       xterm.enable = false;
     };
@@ -118,6 +116,7 @@
       obsidian
       jetbrains-toolbox
       zathura
+      qbittorrent
      ];
    };
 
@@ -145,34 +144,26 @@
     zip
     unzip
     pkg-config
-
-    mangohud
-    protonup
+    virt-manager
 ];
 
   programs.thunar.enable = true;
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+  enable = true;
+  qemu = {
+    runAsRoot = false;
+  };
+  onBoot = "ignore";
+  onShutdown = "shutdown";
+  };
+
+
   programs.virt-manager.enable = true;
 
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true; 
   
-programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-
-  gamescopeSession.enable = true;
-};
-
-# programs.gamemode.enable = true;
-
-environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-      "\${HOME}/.steam/root/compatibilitytools.d";
-  };
 
 
   # Some programs need SUID wrappers, can be configured further or are
