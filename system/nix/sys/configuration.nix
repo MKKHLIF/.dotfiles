@@ -7,8 +7,22 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
+  
+ # boot.initrd.availableKernelModules = [ "nouveau" "vfio-pci" ];
+# boot.initrd.preDeviceCommands = ''
+  # DEVS="0000:01:00.0 0000:01:00.1"
+  # for DEV in $DEVS; do
+   # echo "vfio-pci" > /sys/bus/pci/devices/$DEV/driver_override
+  # done
+  # modprobe -i vfio-pci
+# '';
+  
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelParams = [ "intel_iommu=on" "pcie_aspm=off" ];
+  # boot.kernelModules = [ "kvm-intel" ];
 
+  boot.supportedFilesystems = [ "ntfs" ];
+  boot.loader.systemd-boot.configurationLimit = 8;
   networking.networkmanager.enable = true;
 
   time.timeZone = "Africa/Tunis";
@@ -47,26 +61,18 @@
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
+  services.xserver.enable = true;
+  services.xserver.windowManager.qtile = {
+  enable = true;
+  extraPackages = python3Packages: with python3Packages; [
+    qtile-extras
+  ];
+};
 
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-    };
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
- 	i3status
-        i3lock
-        i3blocks 
-      ];
-    };
-  };
+
 
   services.displayManager.sddm.enable = true;
-  services.displayManager.defaultSession = "none+i3";
-
+  services.displayManager.sddm.wayland.enable = true;
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -107,6 +113,7 @@
       telegram-desktop
 
       kitty
+      alacritty
       wofi
       dolphin
       waybar
@@ -136,7 +143,7 @@
     winetricks
     wineWowPackages.waylandFull
     
-     gcc
+    gcc
     gdb
     cmake
     gnumake
@@ -152,7 +159,7 @@
   virtualisation.libvirtd = {
   enable = true;
   qemu = {
-    runAsRoot = false;
+    runAsRoot = true;
   };
   onBoot = "ignore";
   onShutdown = "shutdown";

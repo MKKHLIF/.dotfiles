@@ -16,7 +16,7 @@
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
-          modules = [ ./system/configuration.nix ];
+          modules = [ ./sys/configuration.nix ];
         };
       };
       homeConfigurations = {

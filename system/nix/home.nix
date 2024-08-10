@@ -49,6 +49,12 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    qtile_config = {
+      source = /home/mk/.dotfiles/config/qtile;
+      target = "/home/mk/.config/qtile";
+      recursive = true;
+    };
   };
 
   # Home Manager can also manage your environment variables through
