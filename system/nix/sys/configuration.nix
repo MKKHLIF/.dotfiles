@@ -122,6 +122,7 @@
       wlsunset
       obsidian
       jetbrains-toolbox
+      jetbrains.clion
       zathura
       qbittorrent
      ];
