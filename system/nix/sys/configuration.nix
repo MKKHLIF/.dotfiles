@@ -107,7 +107,6 @@
       brave
       arandr
       vscode
-      discord
       pavucontrol
       spotify
       telegram-desktop
