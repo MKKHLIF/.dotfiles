@@ -122,6 +122,7 @@
       obsidian
       jetbrains-toolbox
       jetbrains.clion
+      jetbrains.pycharm-professional
       zathura
       qbittorrent
      ];
