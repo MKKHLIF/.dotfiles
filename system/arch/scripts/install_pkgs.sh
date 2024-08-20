@@ -14,14 +14,14 @@ if [ -d "packages" ]; then
         if [ -f "$package_file" ]; then
             echo "Installing packages from $package_file..."
             # Install the packages listed in the file
-            if command_exists pacman; then
+            if command_exists paru; then
+                paru -S --noconfirm --needed $(cat "$package_file")
+            elif command_exists yay; then
+                yay -S --noconfirm --needed $(cat "$package_file")
+            elif command_exists pacman; then
                 sudo pacman -S --noconfirm --needed $(cat "$package_file")
-            elif command_exists apt-get; then
-                sudo apt-get install -y $(cat "$package_file")
-            elif command_exists yum; then
-                sudo yum install -y $(cat "$package_file")
             else
-                echo "Unable to install packages. Please install the packages manually."
+                echo "Unable to find a compatible package manager. Please install the packages manually."
             fi
         fi
     done
