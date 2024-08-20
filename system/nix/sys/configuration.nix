@@ -125,6 +125,12 @@
       jetbrains.pycharm-professional
       zathura
       qbittorrent
+
+      nitrogen
+      picom
+      rofi
+      asio
+      gtest
      ];
    };
 
