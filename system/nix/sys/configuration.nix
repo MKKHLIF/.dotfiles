@@ -131,6 +131,8 @@
       rofi
       asio
       gtest
+
+      spotube
      ];
    };
 
