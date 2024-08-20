@@ -11,7 +11,6 @@ MAGENTA="\e[35m"
 CYAN="\e[36m"
 WHITE="\e[37m"
 
-# Function to display the title
 display_title() {
     clear
     echo -e "${BOLD}${BLUE}"
