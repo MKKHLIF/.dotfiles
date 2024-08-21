@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Set the source and target directories
-source_dir="$HOME/.dotfile/.config"
-target_dir="$HOME/.config"
+source_dir=$HOME/.dotfiles/config
+target_dir=$HOME/.config
 
 # Create the .config directory if it doesn't exist
 if [ ! -d "$target_dir" ]; then
@@ -11,22 +11,20 @@ if [ ! -d "$target_dir" ]; then
 fi
 
 # Loop through each subdirectory in the source directory
-for dir in "$source_dir"/*/
+for dir in $source_dir/*/
 do
     # Get the basename of the subdirectory
     subdir_name=$(basename "$dir")
-    
+    echo $subdir_name
     # Create the target subdirectory path
     target_subdir="$target_dir/$subdir_name"
-    
+    echo $target_subdir
     # Check if the target subdirectory already has a symlink
     if [ -L "$target_subdir" ]; then
         echo "Symlink already exists for $subdir_name, skipping..."
     else
-        # Create the symlink
+        Create the symlink
         ln -s "$dir" "$target_subdir"
         echo "Created symlink: $target_subdir -> $dir"
     fi
 done
-
-echo "Symlink creation completed."
