@@ -1,2 +1,2 @@
-terminal = "kitty"
+terminal = "alacritty"
 mod = "mod4"
