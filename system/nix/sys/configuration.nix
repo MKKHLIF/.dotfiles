@@ -110,6 +110,7 @@
       pavucontrol
       spotify
       telegram-desktop
+      discord
 
       kitty
       alacritty
