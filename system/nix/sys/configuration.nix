@@ -134,6 +134,7 @@
       gtest
 
       spotube
+      libguestfs
      ];
    };
 

@@ -1,10 +1,7 @@
 neovim
 tmux
 visual-studio-code-bin
-intellij-idea-ultimate-edition
-clion
-pycharm-professional
-webstorm
+jetbrains-toolbox
 docker
 docker-compose
 lazydocker
