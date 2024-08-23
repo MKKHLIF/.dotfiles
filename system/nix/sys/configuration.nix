@@ -120,6 +120,7 @@
       swww
 
       ventoy
+      xfce.thunar
       
       wlsunset
       obsidian
