@@ -119,6 +119,8 @@
       waybar
       swww
 
+      ventoy
+      
       wlsunset
       obsidian
       jetbrains-toolbox
