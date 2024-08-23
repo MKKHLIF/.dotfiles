@@ -16,15 +16,18 @@ do
     # Get the basename of the subdirectory
     subdir_name=$(basename "$dir")
     echo $subdir_name
+
     # Create the target subdirectory path
     target_subdir="$target_dir/$subdir_name"
     echo $target_subdir
-    # Check if the target subdirectory already has a symlink
-    if [ -L "$target_subdir" ]; then
-        echo "Symlink already exists for $subdir_name, skipping..."
-    else
-        Create the symlink
-        ln -s "$dir" "$target_subdir"
-        echo "Created symlink: $target_subdir -> $dir"
+
+    # Remove existing symlink or directory
+    if [ -e "$target_subdir" ] || [ -L "$target_subdir" ]; then
+        rm -rf "$target_subdir"
+        echo "Removed existing $target_subdir"
     fi
+
+    # Create the symlink
+    ln -s "$dir" "$target_subdir"
+    echo "Created symlink: $target_subdir -> $dir"
 done

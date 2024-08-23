@@ -5,7 +5,7 @@ from variables import *
 
 keys = [
     # Open terminal
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "q", lazy.spawn(terminal), desc="Launch terminal"),
     
     # Qtile System Actions
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
@@ -14,7 +14,7 @@ keys = [
     
     # Active Window Actions
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen on the focused window"),
-    Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
 
     # Window Resize
     Key([mod, "control"], "h", lazy.layout.grow_right(), lazy.layout.grow(), lazy.layout.increase_ratio(), lazy.layout.delete()),
