@@ -1,1 +1,12 @@
-These are my personal dotfiles. Please don’t try to install them, as our hardware configurations are likely different.
+> [!NOTE]
+>
+> **System Information:**
+>
+> - **Window Manager:** Hyprland
+> - **Shell:** ZSH
+> - **Terminal:** Kitty
+> - **Editor:** Neovim
+> - **Launcher:** Wofi
+> - **Wallpaper Manager:** Hyprpaper
+> - **Lock Screen:** Hyprlock
+> - **Status Bar:** Waybar
