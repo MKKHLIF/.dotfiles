@@ -1,3 +1,5 @@
+![image](assets/cover.png)
+
 > [!NOTE]
 >
 > **System Information:**
