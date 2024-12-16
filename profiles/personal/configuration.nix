@@ -22,7 +22,7 @@
     ../../system/security/firewall.nix
 
     # wm
-    ../../wm/hyprland.nix
+    ../../system/wm/hyprland.nix
 
   ];
 
