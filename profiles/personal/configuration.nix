@@ -21,6 +21,9 @@
     # security
     ../../system/security/firewall.nix
 
+    # wm
+    ../../wm/hyprland.nix
+
   ];
 
   
@@ -31,7 +34,7 @@
   
   # Enable GNOME desktop environment
 services.xserver.desktopManager.gnome.enable = true;
-services.xserver.displayManager.gdm.enable = true;
+# services.xserver.displayManager.gdm.enable = true;
 # Optionally, ensure X server is enabled (usually done by default with GNOME)
 services.xserver.enable = true;
 
