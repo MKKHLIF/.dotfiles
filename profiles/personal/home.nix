@@ -9,8 +9,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    # hardware
-    ../../user/hardware/bluetooth/bluetooth.nix
+    ../../user/hardware/bluetooth/bluetooth.nix   # bluetooth
 
     # app
     ../../user/app/git/git.nix
@@ -20,28 +19,14 @@
     ../../user/app/terminal/alacritty.nix
     ../../user/app/nvim/nvim.nix
 
-    # shell
-    ../../user/shell/sh.nix
+    ../../user/shell/sh.nix         # shell 
+    ../../user/style/stylix.nix     # styles
 
   ];
 
   home.packages = [
-
     pkgs.hello
     pkgs.tmux
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
 
   home.file = {

@@ -35,6 +35,10 @@
     ../../system/app/virtualization.nix
     ( import ../../system/app/docker.nix {storageDriver = null; inherit pkgs userSettings lib;} )
 
+    # styles
+    ../../system/style/stylix.nix
+
+
   ];
 
   time.timeZone = systemSettings.timezone;
