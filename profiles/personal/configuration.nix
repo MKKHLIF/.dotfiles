@@ -22,6 +22,7 @@
     ../../system/security/firewall.nix
 
     # wm
+    ../../system/wm/sddm.nix
     ../../system/wm/hyprland.nix
 
   ];

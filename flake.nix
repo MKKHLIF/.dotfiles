@@ -33,13 +33,6 @@
         fontPkg = pkgs.intel-one-mono;
       };
 
-      inputs = {
-        hyprland = {
-          url = "github:hyprwm/Hyprland/v0.44.1?submodules=true";
-          inputs.nixpkgs.follows = "nixpkgs";
-        };
-      };
-
     in {
       
       nixosConfigurations = {
@@ -53,7 +46,6 @@
           specialArgs = {
             inherit systemSettings;
             inherit userSettings;
-            inherit inputs;
           };
 
         };
@@ -71,7 +63,6 @@
           extraSpecialArgs  = {
             inherit systemSettings;
             inherit userSettings;
-            inherit inputs;
           };
           
         };
