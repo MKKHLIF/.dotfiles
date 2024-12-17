@@ -36,7 +36,7 @@
     in {
       
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
+        mk = lib.nixosSystem {
           inherit system;
           modules = [ 
             (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
