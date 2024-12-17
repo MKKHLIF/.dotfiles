@@ -2,10 +2,12 @@
 
 {
   imports = [
-    
+
+    #bootloader
+    ../../system/bootloader/grub.nix
+
     # hardware
     ../../system/hardware-configuration.nix
-    ../../system/hardware/bootloader.nix
     ../../system/hardware/network.nix
     ../../system/hardware/audio.nix
     ../../system/hardware/nvidia.nix
