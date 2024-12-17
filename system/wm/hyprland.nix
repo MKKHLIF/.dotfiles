@@ -3,7 +3,7 @@
 in
 {
   # Import wayland config
-    imports = [ ./display-server/wayland.nix ];
+    imports = [ ../display-server/wayland.nix ];
 
   # Security
   security = {

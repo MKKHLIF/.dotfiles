@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-    imports = [ ./display-server/x11.nix ];
+    imports = [ ../display-server/x11.nix ];
     
     services.xserver.windowManager.qtile = {
         enable = true;

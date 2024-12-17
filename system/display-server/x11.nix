@@ -9,12 +9,14 @@
   # Configure X11
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
-    xkbOptions = "caps:escape";
-    excludePackages = [ pkgs.xterm ];
-    libinput = {
-      touchpad.disableWhileTyping = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+      options = "caps:escape";
     };
+
+    excludePackages = [ pkgs.xterm ];
   };
+  services.libinput.touchpad.disableWhileTyping = true;
+
 }
