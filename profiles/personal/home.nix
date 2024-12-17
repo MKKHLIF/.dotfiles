@@ -15,12 +15,14 @@
     ../../user/app/git/git.nix
     ../../user/app/virtualization/virtualization.nix
     ../../user/app/browser/brave.nix
-    ../../user/app/terminal/kitty.nix
-    ../../user/app/terminal/alacritty.nix
+    # ../../user/app/terminal/kitty.nix
+    # ../../user/app/terminal/alacritty.nix
     ../../user/app/nvim/nvim.nix
 
     ../../user/shell/sh.nix         # shell 
     ../../user/style/stylix.nix     # styles
+
+    ../../user/wm/hyprland/hyprland.nix      # hyprland
 
   ];
 

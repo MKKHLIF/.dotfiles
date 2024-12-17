@@ -7,6 +7,12 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
     stylix.url = "github:danth/stylix";
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland/v0.44.1?submodules=true";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, ... }:
@@ -26,7 +32,7 @@
         name = "mk";
         email = "khlif.mk@proton.me";
         dotfilesDir = "~/.dotfiles";
-        theme = "ayu-dark";
+        theme = "gruvbox-dark-hard";
         wm = "hyprland";
         font = "Jetbrains Mono";
         fontPkg = pkgs.jetbrains-mono;

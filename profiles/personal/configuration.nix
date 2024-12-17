@@ -3,41 +3,28 @@
 {
   imports = [
 
-    #bootloader
-    ../../system/bootloader/grub.nix
+    ../../system/bootloader/grub.nix            # bootloader
 
-    # hardware
-    ../../system/hardware-configuration.nix
+    ../../system/hardware-configuration.nix     # hardware cfg
     ../../system/hardware/network.nix
-    ../../system/hardware/audio.nix
-    ../../system/hardware/nvidia.nix
+    ../../system/hardware/audio.nix             # pipewire
+    ../../system/hardware/nvidia.nix            # nvidia gpu
     ../../system/hardware/bluetooth.nix
-    ../../system/hardware/printing.nix
+    ../../system/hardware/printing.nix          # cups
     
-    # security
-    ../../system/security/firewall.nix
+    ../../system/security/firewall.nix          # firewall
     
-    # display-manager
-    ../../system/display-manager/sddm.nix
+    ../../system/display-manager/sddm.nix       # sddm
+    ../../system/wm/hyprland.nix                # hyprland
     
-    # display-server & wm
-    ../../system/wm/hyprland.nix
-    ../../system/wm/qtile.nix
-    
-    # shell
-    ../../system/shell/sh.nix
+    ../../system/shell/sh.nix                   # shell
+    ../../system/pkg/pkg.nix                    # system pkgs
 
-    # pkg
-    ../../system/pkg/pkg.nix
-    
-    # app
     ../../system/app/flatpak.nix
     ../../system/app/virtualization.nix
     ( import ../../system/app/docker.nix {storageDriver = null; inherit pkgs userSettings lib;} )
 
-    # styles
-    ../../system/style/stylix.nix
-
+    ../../system/style/stylix.nix               # stylix
 
   ];
 
