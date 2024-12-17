@@ -8,11 +8,6 @@
     
     stylix.url = "github:danth/stylix";
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland/v0.44.1?submodules=true";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs = inputs@{ self, ... }:
