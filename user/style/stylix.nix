@@ -158,4 +158,41 @@ in
     sansSerif = [ userSettings.font ];
     serif = [ userSettings.font ];
   };
+
+
+
+  # Enable GNOME theming support
+  stylix.targets.gnome.enable = true;
+
+  # Configure GNOME settings
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = if themePolarity == "dark" then "prefer-dark" else "prefer-light";
+      gtk-theme = lib.mkForce (if themePolarity == "dark" then "adw-gtk3-dark" else "adw-gtk3");
+      cursor-theme = "Adwaita";
+      icon-theme = "Adwaita";
+      font-name = "${userSettings.font} ${toString config.stylix.fonts.sizes.applications}";
+      monospace-font-name = "${userSettings.font} ${toString config.stylix.fonts.sizes.terminal}";
+      document-font-name = "${userSettings.font} ${toString config.stylix.fonts.sizes.applications}";
+    };
+
+    "org/gnome/desktop/background" = {
+      picture-uri = "file://${config.stylix.image}";
+      picture-uri-dark = "file://${config.stylix.image}";
+      picture-options = "zoom";
+    };
+
+    "org/gnome/desktop/screensaver" = {
+      picture-uri = "file://${config.stylix.image}";
+      picture-options = "zoom";
+    };
+
+    "org/gnome/shell/extensions/user-theme" = {
+      name = "Adwaita-" + themePolarity;
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      titlebar-font = "${userSettings.font} Bold ${toString config.stylix.fonts.sizes.applications}";
+    };
+  };
 }
