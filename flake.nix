@@ -28,7 +28,7 @@
         email = "khlif.mk@proton.me";
         dotfilesDir = "~/.dotfiles";
         theme = "nord";
-        wm = "dwm";      # [dwm, hyprland, none]
+        wm = "hyprland";      # [dwm, hyprland, none]
         font = "Jetbrains Mono";
         fontPkg = pkgs.jetbrains-mono;
       };

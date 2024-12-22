@@ -1,5 +1,16 @@
-{ config, pkgs, ... }:
+{ config, userSettings, pkgs, ... }:
+let
+  enableHyprland = userSettings.wm == "hyprland";
 
+  wmServices = if enableHyprland then {
+    hyprland = {
+      enable = true;
+      xwayland = {
+        enable = true;
+      };
+    };
+  } else {};
+in
 {
   imports = [ ./utils/dbus.nix
               ./utils/gnome-keyring.nix
@@ -31,5 +42,7 @@
   services.gnome.gnome-keyring.enable = true;
 
   services.xserver.excludePackages = [ pkgs.xterm ];
+
+  programs = wmServices;  # This will either be the Hyprland configuration or an empty set
 
 }

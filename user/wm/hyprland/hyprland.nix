@@ -6,15 +6,6 @@ in
         ../../app/terminal/kitty.nix
     ];
 
-    programs = {
-        hyprland = {
-        enable = true;
-        xwayland = {
-            enable = true;
-        };
-        };
-    };
-
     home.packages = (with pkgs; [
         hyprpaper
         wofi
