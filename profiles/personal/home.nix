@@ -1,5 +1,10 @@
 { config, pkgs, userSettings, ... }:
-
+let
+  wm = if userSettings.wm == "hyprland" then
+    import ../../user/wm/hyprland/hyprland.nix
+  else
+    import ../../user/wm/dwm/dwm.nix;
+in
 {
 
   home.username = userSettings.username;
@@ -21,10 +26,8 @@
 
     ../../user/shell/sh.nix         # shell 
     ../../user/style/stylix.nix     # styles
-
-    ../../user/wm/hyprland/hyprland.nix      # hyprland
-    ../../user/wm/dwm/dwm.nix                # dwm
-
+    
+    wm
   ];
 
   home.packages = [

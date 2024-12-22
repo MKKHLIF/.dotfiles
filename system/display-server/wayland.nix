@@ -21,4 +21,15 @@
       options = "caps:escape";
     };
   };
+
+
+  # securtiy
+  security = {
+    pam.services.login.enableGnomeKeyring = true;
+  };
+
+  services.gnome.gnome-keyring.enable = true;
+
+  services.xserver.excludePackages = [ pkgs.xterm ];
+
 }

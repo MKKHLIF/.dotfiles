@@ -1,5 +1,10 @@
 { config, lib, pkgs, systemSettings, userSettings, ... }:
-
+let
+  display-server = if userSettings.wm == "hyprland" then
+    import ../../system/display-server/wayland.nix
+  else
+    import ../../system/display-server/x11.nix;
+in
 {
   imports = [
 
@@ -15,8 +20,7 @@
     ../../system/security/firewall.nix          # firewall
     
     ../../system/display-manager/sddm.nix       # sddm
-    ../../system/wm/hyprland.nix                # hyprland
-    ../../system/wm/dwm.nix                     # dwm
+    display-server
     
     ../../system/shell/sh.nix                   # shell
     ../../system/pkg/pkg.nix                    # system pkgs

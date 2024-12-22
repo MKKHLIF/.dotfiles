@@ -1,5 +1,7 @@
-{ pkgs, ... }:
-
+{ pkgs, userSettings, ... }:
+let
+  enableDwm = userSettings.wm == "dwm";
+in
 {
   imports = [ ./utils/dbus.nix
               ./utils/gnome-keyring.nix
@@ -18,5 +20,14 @@
     excludePackages = [ pkgs.xterm ];
   };
   services.libinput.touchpad.disableWhileTyping = true;
+
+  # securtiy
+  security = {
+    pam.services.login.enableGnomeKeyring = true;
+  };
+
+  services.gnome.gnome-keyring.enable = true;
+
+  services.xserver.windowManager.dwm.enable = enableDwm;
 
 }
