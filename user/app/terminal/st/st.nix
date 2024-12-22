@@ -1,30 +1,23 @@
 { inputs, config, lib, pkgs, userSettings, systemSettings, ... }: let
 in
 {
-    imports = [
-
-    ];
 
   nixpkgs = {
     overlays = [
       (final : prev : {
-        dwm = prev.dwm.overrideAttrs (oldAttrs: rec {
-          configFile = prev.writeText "dwm-config.h" (import ./overlays/dwm-config.nix { inherit config; } );
+        st = prev.st.overrideAttrs (oldAttrs: rec {
+          configFile = prev.writeText "st-config.h" (import ./overlays/st-config.nix { inherit config; } );
           postPatch = ''
             ${oldAttrs.postPatch}
             cp ${configFile} config.def.h
           '';
         });
-
       })
+
     ];
   };
     
     home.packages = (with pkgs; [
-        dwm
         st
-        dmenu
-        xorg.xrandr
-        slock
     ]);
 }
