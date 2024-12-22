@@ -16,6 +16,7 @@
     
     ../../system/display-manager/sddm.nix       # sddm
     ../../system/wm/hyprland.nix                # hyprland
+    ../../system/wm/dwm.nix                     # dwm
     
     ../../system/shell/sh.nix                   # shell
     ../../system/pkg/pkg.nix                    # system pkgs

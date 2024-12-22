@@ -23,6 +23,7 @@
     ../../user/style/stylix.nix     # styles
 
     ../../user/wm/hyprland/hyprland.nix      # hyprland
+    ../../user/wm/dwm/dwm.nix                # dwm
 
   ];
 
