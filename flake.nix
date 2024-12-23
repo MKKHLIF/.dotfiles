@@ -27,8 +27,8 @@
         name = "mk";
         email = "khlif.mk@proton.me";
         dotfilesDir = "~/.dotfiles";
-        theme = "io";
-        wm = "gruvbox-dark-hard";      # [dwm, hyprland, none]
+        theme = "gruvbox-dark-hard";
+        wm = "dwm";      # [dwm, hyprland, none]
         font = "Jetbrains Mono";
         fontPkg = pkgs.jetbrains-mono;
       };
