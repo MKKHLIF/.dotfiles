@@ -2,7 +2,7 @@
 in
 {
     imports = [
-
+      ../../app/terminal/st/st.nix
     ];
 
   nixpkgs = {
@@ -22,7 +22,6 @@ in
     
     home.packages = (with pkgs; [
         dwm
-        st
         dmenu
         xorg.xrandr
         slock
