@@ -34,7 +34,7 @@ in
     pkgs.firefox
     pkgs.discord
     pkgs.anki
-
+    pkgs.obsidian
   ];
 
   home.file = {
