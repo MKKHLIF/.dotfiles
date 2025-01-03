@@ -31,6 +31,10 @@ in
   home.packages = [
     pkgs.hello
     pkgs.tmux
+    pkgs.firefox
+    pkgs.discord
+    pkgs.anki
+
   ];
 
   home.file = {

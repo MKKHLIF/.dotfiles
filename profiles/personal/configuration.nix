@@ -65,6 +65,7 @@ in
     extraGroups = [ "wheel" "video"];
     packages = with pkgs; [
       vscode
+       
     ];
   };
 
