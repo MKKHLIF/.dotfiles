@@ -6,7 +6,6 @@ on:
     - cron: '0 0 */2 * *'
   workflow_dispatch:  # Allows manual triggering
 
-# Add permissions block
 permissions:
   contents: write  # Allows pushing to the repository
 
@@ -37,7 +36,10 @@ jobs:
             exit 0
           fi
           
+          # Get current timestamp
+          TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+          
           # Commit and push changes directly to main
           git add flake.lock
-          git commit -m "chore: update flake inputs"
+          git commit -m "chore: update flake inputs (${TIMESTAMP})"
           git push origin main
