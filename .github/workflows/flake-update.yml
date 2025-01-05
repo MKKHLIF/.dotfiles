@@ -1,0 +1,43 @@
+name: Update NixOS Flake
+
+on:
+  schedule:
+    # Runs at 00:00 every 2 days
+    - cron: '0 0 */2 * *'
+  workflow_dispatch:  # Allows manual triggering
+
+# Add permissions block
+permissions:
+  contents: write  # Allows pushing to the repository
+
+jobs:
+  update-flake:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Update flake inputs
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Update flake.lock
+          nix flake update
+          
+          # Check if there are any changes
+          if git diff --quiet; then
+            echo "No updates available"
+            exit 0
+          fi
+          
+          # Commit and push changes directly to main
+          git add flake.lock
+          git commit -m "chore: update flake inputs"
+          git push origin main
