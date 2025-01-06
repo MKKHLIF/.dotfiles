@@ -3,7 +3,7 @@ name: Update NixOS Flake
 on:
   schedule:
     # Runs at 00:00 every 2 days
-    - cron: '0 0 */2 * *'
+    - cron: '0 0 */1 * *'
   workflow_dispatch:  # Allows manual triggering
 
 permissions:
