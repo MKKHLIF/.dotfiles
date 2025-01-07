@@ -35,6 +35,7 @@ in
     pkgs.discord
     pkgs.anki
     pkgs.obsidian
+    pkgs.telegram
   ];
 
   home.file = {
