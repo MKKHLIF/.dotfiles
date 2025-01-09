@@ -13,12 +13,12 @@ in
   imports = [
 
     # Low Level Modules
-    ./modules/low-level/bluetooth.nix
+    ./modules/core/bluetooth.nix
 
     # Desktop Environment 
     ./modules/desktop/hyprland.nix
     ./modules/desktop/kitty.nix
-    # ./modules/desktop/zsh.nix
+    ./modules/desktop/zsh.nix
     
     # stylix
     # ./modules/stylix/stylix.nix    
