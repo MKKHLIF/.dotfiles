@@ -20,12 +20,12 @@ in
     ../../user/app/git/git.nix
     ../../user/app/virtualization/virtualization.nix
     ../../user/app/browser/brave.nix
-    ../../user/app/nvim/nvim.nix
+   # ../../user/app/nvim/nvim.nix
 
     ../../user/shell/sh.nix         # shell 
-    ../../user/style/stylix.nix     # styles
+   # ../../user/style/stylix.nix     # styles
     
-    wm
+   # wm
   ];
 
   home.packages = [
