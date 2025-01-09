@@ -18,10 +18,10 @@ in
     ./modules/low-level/firewall.nix          
     
     # Desktop Environment
-    ./modules/desktop-enviorment/wayland.nix    
-    ./modules/desktop-enviorment/sddm.nix       
-    ./modules/desktop-enviorment/zsh.nix                   
-    ./modules/desktop-enviorment/stylix.nix
+    ./modules/desktop/wayland.nix    
+    ./modules/desktop/sddm.nix       
+    ./modules/desktop/zsh.nix                   
+    ./modules/desktop/stylix.nix
 
     # App Modules
     ./modules/app/pkgs.nix                   

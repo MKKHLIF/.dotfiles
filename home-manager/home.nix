@@ -16,9 +16,9 @@ in
     ./modules/low-level/bluetooth.nix
 
     # Desktop Environment 
-    ./modules/desktop-enviorment/hyprland.nix
-    ./modules/desktop-enviorment/kitty.nix
-    # ./modules/desktop-enviorment/zsh.nix
+    ./modules/desktop/hyprland.nix
+    ./modules/desktop/kitty.nix
+    # ./modules/desktop/zsh.nix
     
     # stylix
     # ./modules/stylix/stylix.nix    
