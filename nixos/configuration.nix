@@ -8,14 +8,14 @@ in
     # Hardware Configuration
     ./hardware-configuration.nix
 
-     # Low Level Modules
-    ./modules/low-level/grub.nix               
-    ./modules/low-level/network.nix
-    ./modules/low-level/audio.nix             
-    ./modules/low-level/nvidia.nix            
-    ./modules/low-level/bluetooth.nix
-    ./modules/low-level/printing.nix         
-    ./modules/low-level/firewall.nix          
+     # Core System Modules
+    ./modules/core/grub.nix               
+    ./modules/core/network.nix
+    ./modules/core/audio.nix             
+    ./modules/core/nvidia.nix            
+    ./modules/core/bluetooth.nix
+    ./modules/core/printing.nix         
+    ./modules/core/firewall.nix          
     
     # Desktop Environment
     ./modules/desktop/wayland.nix    
