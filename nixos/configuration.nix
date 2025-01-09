@@ -21,11 +21,11 @@ in
     ./modules/desktop-enviorment/wayland.nix    
     ./modules/desktop-enviorment/sddm.nix       
     ./modules/desktop-enviorment/zsh.nix                   
-    ./modules/desktop-enviorment/style/stylix.nix
+    ./modules/desktop-enviorment/stylix.nix
 
     # App Modules
-    ./modules/pkgs.nix                   
-    ./modules/qemu.nix
+    ./modules/app/pkgs.nix                   
+    ./modules/app/qemu.nix
     ( import ./modules/app/docker.nix {storageDriver = null; inherit pkgs userSettings lib;} )
 
   ];

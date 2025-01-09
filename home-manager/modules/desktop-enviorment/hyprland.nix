@@ -4,7 +4,6 @@ let
 in
 {
     imports = [
-        ../../app/terminal/kitty.nix
     ];
 
     home.packages = (with pkgs; [

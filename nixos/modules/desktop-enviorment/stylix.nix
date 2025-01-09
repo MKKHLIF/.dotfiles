@@ -1,9 +1,10 @@
 { lib, pkgs, inputs, userSettings, ... }:
 let
-    themePath = "../../../themes/"+userSettings.theme+"/"+userSettings.theme+".yaml";
-    themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../themes"+("/"+userSettings.theme)+"/polarity.txt"));
-    backgroundUrl = builtins.readFile (./. + "../../../themes"+("/"+userSettings.theme)+"/backgroundurl.txt");
-    backgroundSha256 = builtins.readFile (./. + "../../../themes/"+("/"+userSettings.theme)+"/backgroundsha256.txt");
+  themeBasePath = builtins.toPath ../../../themes/${userSettings.theme};
+  themePath = "${themeBasePath}/${userSettings.theme}.yaml";
+  themePolarity = lib.removeSuffix "\n" (builtins.readFile "${themeBasePath}/polarity.txt");
+  backgroundUrl = builtins.readFile "${themeBasePath}/backgroundurl.txt";
+  backgroundSha256 = builtins.readFile "${themeBasePath}/backgroundsha256.txt";
 in
 {
     imports = [ inputs.stylix.nixosModules.stylix ];

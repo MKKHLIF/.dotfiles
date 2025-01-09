@@ -1,15 +1,6 @@
 { config, userSettings, pkgs, ... }:
 let
-  enableHyprland = userSettings.wm == "hyprland";
 
-  wmServices = if enableHyprland then {
-    hyprland = {
-      enable = true;
-      xwayland = {
-        enable = true;
-      };
-    };
-  } else {};
 in
 {
   imports = [ ./dbus.nix
@@ -43,6 +34,13 @@ in
 
   services.xserver.excludePackages = [ pkgs.xterm ];
 
-  programs = wmServices;  # This will either be the Hyprland configuration or an empty set
+  programs = {
+    hyprland = {
+      enable = true;
+      xwayland = {
+        enable = true;
+      };
+    };
+  };
 
 }

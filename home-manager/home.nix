@@ -13,7 +13,7 @@ in
   imports = [
 
     # Low Level Modules
-    ./modules/low-level/bluetooth/bluetooth.nix
+    ./modules/low-level/bluetooth.nix
 
     # Desktop Environment 
     ./modules/desktop-enviorment/hyprland.nix

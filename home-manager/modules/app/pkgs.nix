@@ -5,7 +5,7 @@
         pkgs.discord
         pkgs.anki
         pkgs.obsidian
-        pkgs.telegram
+        pkgs.telegram-desktop
   ];
-  
+
 }
