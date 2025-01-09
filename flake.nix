@@ -12,11 +12,11 @@
 
   outputs = inputs@{ self, ... }:
     let
+      
       # ---- SYSTEM SETTINGS ---- #
       systemSettings = {
         system = "x86_64-linux";
         hostname = "mk";
-        profile = "personal";
         timezone = "Africa/Tunis";
         locale = "en_US.UTF-8";
       };
@@ -28,7 +28,6 @@
         email = "khlif.mk@proton.me";
         dotfilesDir = "~/.dotfiles";
         theme = "gruvbox-dark-hard";
-        wm = "dwm";      # [dwm, hyprland, none]
         font = "Jetbrains Mono";
         fontPkg = pkgs.jetbrains-mono;
       };
@@ -52,7 +51,7 @@
         mk = lib.nixosSystem {
           system = systemSettings.system;
           modules = [
-            (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
+            ./nixos/configuration.nix
           ];
           specialArgs = {
             inherit systemSettings;
@@ -66,7 +65,7 @@
         mk = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+            ./home-manager/home.nix
           ];
           extraSpecialArgs = {
             inherit systemSettings;
