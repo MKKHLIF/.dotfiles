@@ -21,7 +21,9 @@ in
     ./modules/desktop/wayland.nix    
     ./modules/desktop/sddm.nix       
     ./modules/desktop/zsh.nix                   
-    ./modules/desktop/stylix.nix
+
+    # Stylix
+    ./modules/stylix/stylix.nix
 
     # App Modules
     ./modules/app/pkgs.nix                   

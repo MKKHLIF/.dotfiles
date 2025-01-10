@@ -21,14 +21,14 @@ in
     ./modules/desktop/zsh.nix
     
     # stylix
-    ./modules/stylix/stylix.nix    
+    # ./modules/stylix/stylix.nix    
     
     # App Modules
     ./modules/app/pkgs.nix
     ./modules/app/git.nix
     ./modules/app/brave.nix
     ./modules/app/qemu.nix
-    # ./modules/app/nvim.nix
+    ./modules/app/nvim.nix
 
   ];
 

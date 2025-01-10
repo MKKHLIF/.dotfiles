@@ -1,6 +1,6 @@
 { lib, pkgs, inputs, userSettings, ... }:
 let
-  themeBasePath = builtins.toPath ../../../themes/${userSettings.theme};
+  themeBasePath = builtins.toPath ./themes/${userSettings.theme};
   themePath = "${themeBasePath}/${userSettings.theme}.yaml";
   themePolarity = lib.removeSuffix "\n" (builtins.readFile "${themeBasePath}/polarity.txt");
   backgroundUrl = builtins.readFile "${themeBasePath}/backgroundurl.txt";
