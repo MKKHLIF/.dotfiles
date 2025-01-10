@@ -21,7 +21,7 @@ in
     ./modules/desktop/zsh.nix
     
     # stylix
-    # ./modules/stylix/stylix.nix    
+    ./modules/stylix/stylix.nix    
     
     # App Modules
     ./modules/app/pkgs.nix

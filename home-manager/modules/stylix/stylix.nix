@@ -1,17 +1,11 @@
 { config, lib, pkgs, inputs, userSettings, ... }:
 
 let
-  # Path to the theme configuration file (.yaml) based on the user-selected theme.
-  themePath = "../../../themes" + ("/" + userSettings.theme + "/" + userSettings.theme) + ".yaml";
-
-  # Read the polarity (light/dark) from the theme's polarity.txt file.
-  themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../themes" + ("/" + userSettings.theme) + "/polarity.txt"));
-
-  # URL of the background image for the theme, read from backgroundurl.txt.
-  backgroundUrl = builtins.readFile (./. + "../../../themes" + ("/" + userSettings.theme) + "/backgroundurl.txt");
-
-  # SHA256 checksum for the background image, read from backgroundsha256.txt.
-  backgroundSha256 = builtins.readFile (./. + "../../../themes" + ("/" + userSettings.theme) + "/backgroundsha256.txt");
+  themeBasePath = builtins.toPath ../../../themes/${userSettings.theme};
+  themePath = "${themeBasePath}/${userSettings.theme}.yaml";
+  themePolarity = lib.removeSuffix "\n" (builtins.readFile "${themeBasePath}/polarity.txt");
+  backgroundUrl = builtins.readFile "${themeBasePath}/backgroundurl.txt";
+  backgroundSha256 = builtins.readFile "${themeBasePath}/backgroundsha256.txt";
 in
 {
   # Import the stylix module for home-manager-based theming.
