@@ -16,7 +16,7 @@ in
     ./modules/core/bluetooth.nix
 
     # desktop environment 
-    ./modules/desktop/i3.nix
+    ./modules/desktop/i3/i3.nix
     ./modules/desktop/alacritty/alacritty.nix
     ./modules/desktop/rofi/rofi.nix
     ./modules/desktop/nitrogen/nitrogen.nix
