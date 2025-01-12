@@ -104,7 +104,7 @@ in
       in {
         "${modifier}+Return" = "exec ${config.xsession.windowManager.i3.config.terminal}";
         "${modifier}+d" = "exec ${config.xsession.windowManager.i3.config.menu}";
-        "${modifier}+q" = "kill";
+        "${modifier}+c" = "kill";
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+r" = "restart";
         "${modifier}+Shift+e" = "exec i3-nagbar -t warning -m 'Exit i3?' -B 'Yes' 'i3-msg exit'";
@@ -131,7 +131,7 @@ in
         "${modifier}+7" = "workspace number 7";
         "${modifier}+8" = "workspace number 8";
         "${modifier}+9" = "workspace number 9";
-        # "${modifier}+0" = "workspace number 0";
+        "${modifier}+0" = "workspace number 10";
 
         # Move containers to workspace
         "${modifier}+Shift+1" = "move container to workspace number 1";
@@ -143,7 +143,7 @@ in
         "${modifier}+Shift+7" = "move container to workspace number 7";
         "${modifier}+Shift+8" = "move container to workspace number 8";
         "${modifier}+Shift+9" = "move container to workspace number 9";
-        # "${modifier}+Shift+0" = "move container to workspace number 0";
+        "${modifier}+Shift+0" = "move container to workspace number 10";
 
         # Layout
         "${modifier}+b" = "splith";
@@ -175,7 +175,7 @@ in
         # {
         #   command = "dunst";
         #   notification = false;
-        # }
+        # }0
       ];
 
       # Focus settings
