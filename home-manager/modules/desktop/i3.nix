@@ -199,7 +199,7 @@ in
 
     # Extra configuration
     extraConfig = ''
-      sleep 2 && exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --rate 119.93 --pos 0x0 --primary --output eDP-1 --mode 1920x1080 --rate 120.17 --pos 1920x0
+      exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --rate 119.93 --pos 0x0 --primary --output eDP-1 --mode 1920x1080 --rate 120.17 --pos 1920x0
     '';
   };
 
