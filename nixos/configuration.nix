@@ -20,7 +20,6 @@ in
     # Desktop Environment
     ./modules/desktop/sddm.nix       
     ./modules/desktop/x11/x11.nix    
-    ./modules/desktop/wayland/wayland.nix    
 
 
     # Stylix

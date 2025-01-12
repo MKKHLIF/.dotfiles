@@ -12,9 +12,10 @@ in
   services.xserver = {
     enable = true;
     xkb = {
-      layout = "us";
+      layout = "us,ara";
       variant = "";
-      options = "caps:escape";
+      options = "grp:alt_shift_toggle";
+      
     };
     excludePackages = [ pkgs.xterm ];
   };
