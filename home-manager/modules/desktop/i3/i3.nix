@@ -1,7 +1,17 @@
 { inputs, config, lib, pkgs, userSettings, systemSettings, ... }:
 let
+  path-to-script = "~/screen/scripts";
 in
 {
+
+  home.file = {
+    "screen/scripts" = {
+      source = ./src/scripts;
+      recursive = true;
+      force = true; # Ensures the folder is replaced as a symlink
+    };
+  };
+
   xsession.windowManager.i3 = {
     enable = true;
     package = pkgs.i3-gaps;
@@ -155,9 +165,11 @@ in
         "${modifier}+Shift+space" = "floating toggle";
         "${modifier}+space" = "focus mode_toggle";
 
-        # Enable / Disable eDP-1
-        "${modifier}+Ctrl+d" = "exec xrandr --output eDP-1 --off";
-        "${modifier}+Ctrl+f" = "exec xrandr --output eDP-1 --mode 1920x1080 --rate 120.17 --pos 1920x0";
+        # Enable / Disable HDMI-1-1 / eDP-1
+        "${modifier}+Ctrl+d" = "exec ${path-to-script}/display-manager.sh edp-off";
+        "${modifier}+Ctrl+f" = "exec ${path-to-script}/display-manager.sh edp-on";
+        "${modifier}+Shift+d" = "exec ${path-to-script}/display-manager.sh hdmi-off";
+        "${modifier}+Shift+f" = "exec ${path-to-script}/display-manager.sh hdmi-on";
       };
 
       # Startup applications
@@ -199,8 +211,8 @@ in
 
     # Extra configuration
     extraConfig = ''
-      exec_always --no-startup-id sleep 1 && xrandr --output HDMI-1-1 --mode 1920x1080 --rate 119.93 --pos 0x0 --primary --output eDP-1 --off
-      exec_always --no-startup-id nitrogen --restore
+      exec --no-startup-id ${path-to-script}/display-init.sh
+      exec --no-startup-id nitrogen --restore
     '';
   };
 }
