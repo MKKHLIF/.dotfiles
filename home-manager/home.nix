@@ -16,13 +16,14 @@ in
     ./modules/core/bluetooth.nix
 
     # Desktop Environment 
-    ./modules/desktop/hyprland.nix
-    ./modules/desktop/kitty.nix
+    ./modules/desktop/hyprland/hyprland.nix
+    ./modules/desktop/qtile/qtile.nix
     
     # stylix
     # ./modules/stylix/stylix.nix    
     
     # App Modules
+    ./modules/app/cli/kitty.nix
     ./modules/app/cli/zsh.nix
     ./modules/app/cli/git.nix
     ./modules/app/cli/nvim.nix

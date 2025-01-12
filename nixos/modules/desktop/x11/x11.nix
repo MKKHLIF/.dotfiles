@@ -23,4 +23,12 @@ in
   services.libinput.touchpad = {
     disableWhileTyping = true;
   };
+
+  # Enable Qtile
+  services.xserver.windowManager.qtile = {
+  enable = true;
+  extraPackages = python3Packages: with python3Packages; [
+    qtile-extras
+  ];
+};
 }
