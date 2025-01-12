@@ -20,6 +20,7 @@ in
     ./modules/desktop/alacritty/alacritty.nix
     ./modules/desktop/rofi/rofi.nix
     ./modules/desktop/nitrogen/nitrogen.nix
+    ./modules/desktop/wallpapers/wallpapers.nix
 
     # cli modules
     ./modules/cli/zsh.nix

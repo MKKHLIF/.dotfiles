@@ -5,13 +5,12 @@
     nitrogen
   ];
 
-home.file.".config/nitrogen/nitrogen.cfg" = {
-  source = ./nitrogen.cfg;
-  force = true;
-};
-home.file."wallpapers" = {
-  source = ../../../../wallpapers;
-  force = true;
-};
+  home.file = {
+    ".config/nitrogen" = {
+      source = ./src;
+      recursive = true;
+      force = true; # Ensures the folder is replaced as a symlink
+    };
+  };
 
 }
