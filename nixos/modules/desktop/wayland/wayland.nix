@@ -3,9 +3,9 @@ let
 
 in
 {
-  imports = [ ./dbus.nix
-              ./gnome-keyring.nix
-              ./fonts.nix
+  imports = [ ../utils/dbus.nix
+              ../utils/gnome-keyring.nix
+              ../utils/fonts.nix
             ];
 
   environment.systemPackages = with pkgs;

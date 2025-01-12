@@ -18,17 +18,17 @@ in
     # Desktop Environment 
     ./modules/desktop/hyprland.nix
     ./modules/desktop/kitty.nix
-    ./modules/desktop/zsh.nix
     
     # stylix
     # ./modules/stylix/stylix.nix    
     
     # App Modules
+    ./modules/app/cli/zsh.nix
+    ./modules/app/cli/git.nix
+    ./modules/app/cli/nvim.nix
     ./modules/app/pkgs.nix
-    ./modules/app/git.nix
     ./modules/app/brave.nix
     ./modules/app/qemu.nix
-    ./modules/app/nvim.nix
 
   ];
 

@@ -18,15 +18,17 @@ in
     ./modules/core/firewall.nix          
     
     # Desktop Environment
-    ./modules/desktop/wayland.nix    
     ./modules/desktop/sddm.nix       
-    ./modules/desktop/zsh.nix                   
+    ./modules/desktop/x11/x11.nix    
+    ./modules/desktop/wayland/wayland.nix    
+
 
     # Stylix
     ./modules/stylix/stylix.nix
 
     # App Modules
     ./modules/app/pkgs.nix                   
+    ./modules/app/zsh.nix                   
     ./modules/app/qemu.nix
     ( import ./modules/app/docker.nix {storageDriver = null; inherit pkgs userSettings lib;} )
 
