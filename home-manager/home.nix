@@ -17,7 +17,7 @@ in
 
     # desktop environment 
     ./modules/desktop/i3.nix
-    ./modules/desktop/alacritty.nix
+    ./modules/desktop/alacritty/alacritty.nix
     ./modules/desktop/rofi/rofi.nix
     ./modules/desktop/nitrogen/nitrogen.nix
 
