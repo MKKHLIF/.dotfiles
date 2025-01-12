@@ -167,11 +167,11 @@ in
         #   always = true;
         #   notification = false;
         # }
-        {
-          command = "nitrogen --restore";
-          always = true;
-          notification = false;
-        }
+        # {
+        #   command = "nitrogen --restore";
+        #   always = true;
+        #   notification = false;
+        # }
         # {
         #   command = "dunst";
         #   notification = false;
@@ -199,7 +199,8 @@ in
 
     # Extra configuration
     extraConfig = ''
-      exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --rate 119.93 --pos 0x0 --primary --output eDP-1 --mode 1920x1080 --rate 120.17 --pos 1920x0
+      exec_always --no-startup-id sleep 1 && xrandr --output HDMI-1-1 --mode 1920x1080 --rate 119.93 --pos 0x0 --primary --output eDP-1 --off
+      exec_always --no-startup-id nitrogen --restore
     '';
   };
 }
