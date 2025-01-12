@@ -131,7 +131,7 @@ in
         "${modifier}+7" = "workspace number 7";
         "${modifier}+8" = "workspace number 8";
         "${modifier}+9" = "workspace number 9";
-        "${modifier}+0" = "workspace number 0";
+        # "${modifier}+0" = "workspace number 0";
 
         # Move containers to workspace
         "${modifier}+Shift+1" = "move container to workspace number 1";
@@ -143,7 +143,7 @@ in
         "${modifier}+Shift+7" = "move container to workspace number 7";
         "${modifier}+Shift+8" = "move container to workspace number 8";
         "${modifier}+Shift+9" = "move container to workspace number 9";
-        "${modifier}+Shift+0" = "move container to workspace number 0";
+        # "${modifier}+Shift+0" = "move container to workspace number 0";
 
         # Layout
         "${modifier}+b" = "splith";
@@ -162,20 +162,20 @@ in
 
       # Startup applications
       startup = [
-        {
-          command = "picom -b";
-          always = true;
-          notification = false;
-        }
-        {
-          command = "nitrogen --restore";
-          always = true;
-          notification = false;
-        }
-        {
-          command = "dunst";
-          notification = false;
-        }
+        # {
+        #   command = "picom -b";
+        #   always = true;
+        #   notification = false;
+        # }
+        # {
+        #   command = "nitrogen --restore";
+        #   always = true;
+        #   notification = false;
+        # }
+        # {
+        #   command = "dunst";
+        #   notification = false;
+        # }
       ];
 
       # Focus settings
@@ -199,15 +199,7 @@ in
 
     # Extra configuration
     extraConfig = ''
-      
-      exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --rate 119.93 --pos 0x0 --primary --output eDP-1 --mode 1920x1080 --rate 120.17 --pos 1920x0
-
-      # Disable window titlebars for gaps
-      for_window [class=".*"] border pixel 2
-
-      # Enable floating for some windows
-      for_window [class="Pavucontrol"] floating enable
-      for_window [class="Nm-connection-editor"] floating enable
+      sleep 2 && exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --rate 119.93 --pos 0x0 --primary --output eDP-1 --mode 1920x1080 --rate 120.17 --pos 1920x0
     '';
   };
 
