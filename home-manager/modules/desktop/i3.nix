@@ -35,60 +35,60 @@ in
         ];
       };
 
-      # Colors configuration
+      # Colors configuration using Gruvbox Dark
       colors = {
-        background = "#2E3440";
+        background = "#1d2021";  # base00
         focused = {
-          border = "#88C0D0";
-          background = "#88C0D0";
-          text = "#2E3440";
-          indicator = "#A3BE8C";
-          childBorder = "#88C0D0";
+          border = "#b8bb26";      # base0B (green)
+          background = "#b8bb26";   # base0B (green)
+          text = "#1d2021";        # base00 (bg)
+          indicator = "#8ec07c";    # base0C (aqua)
+          childBorder = "#b8bb26";  # base0B (green)
         };
         unfocused = {
-          border = "#3B4252";
-          background = "#3B4252";
-          text = "#D8DEE9";
-          indicator = "#3B4252";
-          childBorder = "#3B4252";
+          border = "#3c3836";      # base01
+          background = "#3c3836";   # base01
+          text = "#d5c4a1";        # base05
+          indicator = "#3c3836";    # base01
+          childBorder = "#3c3836";  # base01
         };
         urgent = {
-          border = "#BF616A";
-          background = "#BF616A";
-          text = "#D8DEE9";
-          indicator = "#BF616A";
-          childBorder = "#BF616A";
+          border = "#fb4934";      # base08 (red)
+          background = "#fb4934";   # base08 (red)
+          text = "#fbf1c7";        # base07
+          indicator = "#fb4934";    # base08 (red)
+          childBorder = "#fb4934";  # base08 (red)
         };
       };
 
-      # Bar configuration using i3status-rust
+      # Bar configuration using i3status-rust with Gruvbox colors
       bars = [
         {
           position = "bottom";
           statusCommand = "i3status-rust ~/.config/i3status-rust/config-default.toml";
           colors = {
-            background = "#2E3440";
-            statusline = "#D8DEE9";
-            separator = "#4C566A";
+            background = "#1d2021";  # base00
+            statusline = "#ebdbb2";  # base06
+            separator = "#504945";   # base02
             focusedWorkspace = {
-              border = "#88C0D0";
-              background = "#88C0D0";
-              text = "#2E3440";
+              border = "#b8bb26";    # base0B (green)
+              background = "#b8bb26"; # base0B (green)
+              text = "#1d2021";      # base00
             };
             activeWorkspace = {
-              border = "#4C566A";
-              background = "#4C566A";
-              text = "#D8DEE9";
+              border = "#504945";    # base02
+              background = "#504945"; # base02
+              text = "#ebdbb2";      # base06
             };
             inactiveWorkspace = {
-              border = "#3B4252";
-              background = "#3B4252";
-              text = "#D8DEE9";
+              border = "#3c3836";    # base01
+              background = "#3c3836"; # base01
+              text = "#d5c4a1";      # base05
             };
             urgentWorkspace = {
-              border = "#BF616A";
-              background = "#BF616A";
-              text = "#D8DEE9";
+              border = "#fb4934";    # base08 (red)
+              background = "#fb4934"; # base08 (red)
+              text = "#fbf1c7";      # base07
             };
           };
           fonts = {
@@ -167,15 +167,15 @@ in
         #   always = true;
         #   notification = false;
         # }
-        # {
-        #   command = "nitrogen --restore";
-        #   always = true;
-        #   notification = false;
-        # }
+        {
+          command = "nitrogen --restore";
+          always = true;
+          notification = false;
+        }
         # {
         #   command = "dunst";
         #   notification = false;
-        # }0
+        # }
       ];
 
       # Focus settings
@@ -202,5 +202,4 @@ in
       exec --no-startup-id xrandr --output HDMI-1-1 --mode 1920x1080 --rate 119.93 --pos 0x0 --primary --output eDP-1 --mode 1920x1080 --rate 120.17 --pos 1920x0
     '';
   };
-
 }
