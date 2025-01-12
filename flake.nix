@@ -7,8 +7,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
     stylix.url = "github:danth/stylix";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-
   };
 
   outputs = inputs@{ self, ... }:

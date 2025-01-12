@@ -16,21 +16,23 @@ in
     ./modules/core/bluetooth.nix
 
     # Desktop Environment 
-    ./modules/desktop/hyprland/hyprland.nix
-    ./modules/desktop/qtile/qtile.nix
-    
-    # stylix
-    # ./modules/stylix/stylix.nix    
+    ./modules/desktop/i3.nix
+    ./modules/desktop/alacritty.nix
+    ./modules/desktop/rofi.nix
+
+    # Cli Modules
+    ./modules/cli/zsh.nix
+    ./modules/cli/git.nix
+    ./modules/cli/nvim.nix
+    ./modules/cli/tmux.nix
     
     # App Modules
-    ./modules/app/cli/kitty.nix
-    ./modules/app/cli/zsh.nix
-    ./modules/app/cli/git.nix
-    ./modules/app/cli/nvim.nix
     ./modules/app/pkgs.nix
     ./modules/app/brave.nix
     ./modules/app/qemu.nix
 
+    # stylix
+    # ./modules/stylix/stylix.nix   
   ];
 
 

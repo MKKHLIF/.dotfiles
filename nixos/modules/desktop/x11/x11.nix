@@ -24,11 +24,12 @@ in
     disableWhileTyping = true;
   };
 
-  # Enable Qtile
-  services.xserver.windowManager.qtile = {
-  enable = true;
-  extraPackages = python3Packages: with python3Packages; [
-    qtile-extras
-  ];
-};
+  # Enable i3 window manager
+  services.xserver = {
+    windowManager.i3.enable = true;
+  };
+
+  services.displayManager = {
+    defaultSession = "none+i3";
+  };
 }
