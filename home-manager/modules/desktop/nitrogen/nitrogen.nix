@@ -5,8 +5,13 @@
     nitrogen
   ];
 
-  home.file = {
-    ".config/nitrogen/nitrogen.cfg".source = ./nitrogen.cfg;
-    "wallpapers".source = ../../../../wallpapers;
-  };
+home.file.".config/nitrogen/nitrogen.cfg" = {
+  source = ./nitrogen.cfg;
+  force = true;
+};
+home.file."wallpapers" = {
+  source = ../../../../wallpapers;
+  force = true;
+};
+
 }

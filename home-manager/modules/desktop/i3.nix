@@ -64,7 +64,7 @@ in
       # Bar configuration using i3status-rust
       bars = [
         {
-          position = "top";
+          position = "bottom";
           statusCommand = "i3status-rust ~/.config/i3status-rust/config-default.toml";
           colors = {
             background = "#2E3440";
@@ -93,7 +93,7 @@ in
           };
           fonts = {
             names = [ "JetBrainsMono Nerd Font" ];
-            size = 10.0;
+            size = 8.0;
           };
         }
       ];
@@ -127,6 +127,11 @@ in
         "${modifier}+3" = "workspace number 3";
         "${modifier}+4" = "workspace number 4";
         "${modifier}+5" = "workspace number 5";
+        "${modifier}+6" = "workspace number 6";
+        "${modifier}+7" = "workspace number 7";
+        "${modifier}+8" = "workspace number 8";
+        "${modifier}+9" = "workspace number 9";
+        "${modifier}+0" = "workspace number 0";
 
         # Move containers to workspace
         "${modifier}+Shift+1" = "move container to workspace number 1";
@@ -134,6 +139,11 @@ in
         "${modifier}+Shift+3" = "move container to workspace number 3";
         "${modifier}+Shift+4" = "move container to workspace number 4";
         "${modifier}+Shift+5" = "move container to workspace number 5";
+        "${modifier}+Shift+6" = "move container to workspace number 6";
+        "${modifier}+Shift+7" = "move container to workspace number 7";
+        "${modifier}+Shift+8" = "move container to workspace number 8";
+        "${modifier}+Shift+9" = "move container to workspace number 9";
+        "${modifier}+Shift+0" = "move container to workspace number 0";
 
         # Layout
         "${modifier}+b" = "splith";
