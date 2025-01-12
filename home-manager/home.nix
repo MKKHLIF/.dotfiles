@@ -19,6 +19,7 @@ in
     ./modules/desktop/i3.nix
     ./modules/desktop/alacritty.nix
     ./modules/desktop/rofi.nix
+    ./modules/desktop/nitrogen/nitrogen.nix
 
     # cli modules
     ./modules/cli/zsh.nix
