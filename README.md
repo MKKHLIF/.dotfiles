@@ -1,29 +1,35 @@
+<div align="center">
 
-<p align="center">
-  <img src="https://img.shields.io/github/license/raexera/yuki" alt="License Badge"  height="20"/>
-</p>
+  <img alt="Nix-Snowflake" src="assets/nix-snowflake-gruvbox.svg" width="120px"/>
 
-<p align="center">
-  <a href="#">
-    <img src="assets/ezgif-1-4bc10b931c.jpg" title="Banner"/>
-  </a>
-</p>
+  <h1><samp>MK's Dotfiles</samp></h1>
 
-<hr>
+  ![GitHub Repo stars](https://img.shields.io/github/stars/Gurjaka/Dotfiles?style=for-the-badge&labelColor=3c3836&color=d65d0e) 
+  ![GitHub last commit](https://img.shields.io/github/last-commit/Gurjaka/Dotfiles?style=for-the-badge&labelColor=3c3836&color=fabd2f) 
+  ![GitHub repo size](https://img.shields.io/github/repo-size/Gurjaka/Dotfiles?style=for-the-badge&labelColor=3c3836&color=458588)
 
+  <p align="center">
+    <a href="#">
+      <img src="assets/ezgif-1-4bc10b931c.jpg" alt="Banner" title="Banner"/>
+    </a>
+  </p>
 
-> [!WARNING]  
+  <hr>
+
+</div>
+
+> **⚠ WARNING**  
 > This setup is not guaranteed to work on your machine.  
 > Please review the source packages and configuration options carefully before installing.
 
-> [!NOTE]
-> **System Information:**
-> - **OS:** Arch / NixOS
-> - **Window Manager:** I3
-> - **Shell:** ZSH
-> - **Terminal:** Alacritty
-> - **Editor:** Neovim
-> - **Launcher:** Rofi
+> **ℹ NOTE**  
+> **System Information:**  
+> - **OS:** Arch / NixOS  
+> - **Window Manager:** I3  
+> - **Shell:** ZSH  
+> - **Terminal:** Alacritty  
+> - **Editor:** Neovim  
+> - **Launcher:** Rofi  
 
 ## About
 
