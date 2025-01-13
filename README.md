@@ -27,8 +27,9 @@
 
 ### System Information
 
-- **OS:** Arch / NixOS  
+- **OS:** Arch | NixOS  
 - **Window Manager:** I3  
+- **Bar:** Eww  
 - **Shell:** ZSH  
 - **Terminal:** Alacritty  
 - **Editor:** Neovim  
@@ -39,3 +40,4 @@
 ## About
 
 A custom set of personal configurations designed for NixOS and Home-Manager, leveraging the capabilities of [flakes](https://nixos.wiki/wiki/Flakes).
+
