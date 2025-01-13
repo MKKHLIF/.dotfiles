@@ -7,9 +7,13 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
     stylix.url = "github:danth/stylix";
+
+    grub2-themes = {
+      url = "github:vinceliuice/grub2-themes";
+    };
   };
 
-  outputs = inputs@{ self, ... }:
+  outputs = inputs@{ self, grub2-themes, ... }:
     let
       
       # ---- SYSTEM SETTINGS ---- #
@@ -51,6 +55,8 @@
           system = systemSettings.system;
           modules = [
             ./nixos/configuration.nix
+            grub2-themes.nixosModules.default
+
           ];
           specialArgs = {
             inherit systemSettings;
