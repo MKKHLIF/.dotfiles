@@ -25,7 +25,7 @@ in
     # cli modules
     ./modules/cli/zsh.nix
     ./modules/cli/git.nix
-    ./modules/cli/nvim.nix
+    ./modules/cli/nvim/nvim.nix
     ./modules/cli/tmux.nix
     
     # app modules
