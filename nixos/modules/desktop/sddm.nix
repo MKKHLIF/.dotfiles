@@ -15,11 +15,21 @@
   #       };})
   #   ];
 
+  environment.systemPackages = [(
+  pkgs.catppuccin-sddm.override {
+    flavor = "mocha";
+    font  = "Noto Sans";
+    fontSize = "9";
+    background = "${../../../wallpapers/06.png}";
+    loginBackground = true;
+  }
+  )];
+
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
     enableHidpi = true;
-    # theme = "chili";
-    package = pkgs.sddm;
+    theme = "catppuccin-mocha";
+    package = pkgs.kdePackages.sddm;
   };
 }
