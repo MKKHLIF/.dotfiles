@@ -11,7 +11,7 @@
 
   home.file = {
     ".config/nvim" = {
-      source = ./src;
+      source = ./nvim-config;
       recursive = true;
       force = true; # Ensures the folder is replaced as a symlink
     };
