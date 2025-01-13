@@ -9,20 +9,21 @@
   </a>
 </p>
 
-<br>
-
-
 <hr>
 
-> [System Information:]  
-> - **OS:** NixOS  
+
+> [!WARNING]  
+> This setup is not guaranteed to work on your machine. 
+> Please review the source packages and configuration options carefully before installing.
+
+> [System Information]  
+> - **OS:** Arch / NixOS 
 > - **Window Manager:** I3  
 > - **Shell:** ZSH  
 > - **Terminal:** Alacritty  
 > - **Editor:** Neovim  
+> - **Launcher:** Rofi  
 
-⚠️ **Warning:**  
-This setup is not guaranteed to work on your machine. Please review the source packages carefully before installing.
 
 
 
