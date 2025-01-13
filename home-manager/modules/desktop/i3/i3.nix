@@ -3,6 +3,9 @@ let
   path-to-script = "~/screen/scripts";
 in
 {
+  imports = [
+    ./i3-lock.nix
+  ];
 
   home.file = {
     "screen/scripts" = {
@@ -170,6 +173,8 @@ in
         "${modifier}+Ctrl+f" = "exec ${path-to-script}/display-manager.sh edp-on";
         "${modifier}+Shift+d" = "exec ${path-to-script}/display-manager.sh hdmi-off";
         "${modifier}+Shift+f" = "exec ${path-to-script}/display-manager.sh hdmi-on";
+
+        "${modifier}+Shift+x" = "exec ~/.config/i3lock/lock.sh";
       };
 
       # Startup applications
