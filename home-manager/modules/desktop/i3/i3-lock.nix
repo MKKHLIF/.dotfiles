@@ -10,7 +10,7 @@ in
     ];
     
     programs.zsh.shellAliases = {
-        lock = "i3lock";
+        lock = " ~/.config/i3lock/lock.sh";
     };
 
     home.file = {
