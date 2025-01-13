@@ -3,7 +3,7 @@
 {
     home.file = {
         ".config/wallpapers" = {
-        source = ./src/wallpapers;
+        source = ../../../../wallpapers;
         recursive = true;
         force = true; # Ensures the folder is replaced as a symlink
         };
