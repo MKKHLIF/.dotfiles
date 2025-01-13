@@ -16,16 +16,14 @@
 > This setup is not guaranteed to work on your machine.  
 > Please review the source packages and configuration options carefully before installing.
 
-
-> [System Information]
+> [!NOTE]
+> **System Information:**
 > - **OS:** Arch / NixOS
 > - **Window Manager:** I3
 > - **Shell:** ZSH
 > - **Terminal:** Alacritty
 > - **Editor:** Neovim
 > - **Launcher:** Rofi
-
-
 
 ## About
 
