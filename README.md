@@ -1,26 +1,31 @@
-<p align="center">
-  <a href="#">
-    <img src="https://github.com/raexera/yuki/assets/93292023/be163e9a-69d8-4b5a-a5a7-d1f5215972d1" title="Banner"/>
-  </a>
-</p>
-
-<br>
 
 <p align="center">
   <img src="https://img.shields.io/github/license/raexera/yuki" alt="License Badge"  height="20"/>
 </p>
 
+<p align="center">
+  <a href="#">
+    <img src="assets/ezgif-1-4bc10b931c.jpg" title="Banner"/>
+  </a>
+</p>
+
+<br>
+
+
 <hr>
 
-> [!NOTE]
->
-> **System Information:**
->
-> - **OS:** NixOS
-> - **Window Manager:** Hyprland
-> - **Shell:** ZSH
-> - **Terminal:** Kitty
-> - **Editor:** Neovim
+> [System Information:]  
+> - **OS:** NixOS  
+> - **Window Manager:** I3  
+> - **Shell:** ZSH  
+> - **Terminal:** Alacritty  
+> - **Editor:** Neovim  
+
+⚠️ **Warning:**  
+This setup is not guaranteed to work on your machine. Please review the source packages carefully before installing.
+
+
+
 
 ## About
 
