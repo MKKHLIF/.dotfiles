@@ -18,6 +18,7 @@
       
       # ---- SYSTEM SETTINGS ---- #
       systemSettings = {
+        host = "nixos";
         system = "x86_64-linux";
         hostname = "mk";
         timezone = "Africa/Tunis";
@@ -54,7 +55,7 @@
         mk = lib.nixosSystem {
           system = systemSettings.system;
           modules = [
-            ./nixos/configuration.nix
+            (./. + "/hosts" + ("/" + systemSettings.host) + "/configuration.nix") 
             grub2-themes.nixosModules.default
 
           ];
@@ -70,7 +71,7 @@
         mk = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home-manager/home.nix
+            (./. + "/hosts" + ("/" + systemSettings.host) + "/home.nix") 
           ];
           extraSpecialArgs = {
             inherit systemSettings;

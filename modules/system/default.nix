@@ -5,31 +5,20 @@ in
 {
   imports = [
     
-    # Hardware Configuration
-    ./hardware-configuration.nix
-
-     # Core System Modules
-    ./modules/core/grub.nix               
-    ./modules/core/network.nix
-    ./modules/core/audio.nix             
-    ./modules/core/nvidia.nix            
-    ./modules/core/bluetooth.nix
-    ./modules/core/printing.nix         
-    ./modules/core/firewall.nix          
-    
-    # Desktop Environment
-    ./modules/desktop/sddm.nix       
-    ./modules/desktop/x11/x11.nix    
-
-
-    # Stylix
-    ./modules/stylix/stylix.nix
-
-    # App Modules
-    ./modules/app/pkgs.nix                   
-    ./modules/app/zsh.nix                   
-    ./modules/app/qemu.nix
-    ( import ./modules/app/docker.nix {storageDriver = null; inherit pkgs userSettings lib;} )
+    ./core/grub.nix               
+    ./core/network.nix
+    ./core/audio.nix             
+    ./core/nvidia.nix            
+    ./core/bluetooth.nix
+    ./core/printing.nix         
+    ./core/firewall.nix          
+    ./desktop/sddm.nix       
+    ./desktop/x11/x11.nix    
+    ./stylix/stylix.nix
+    ./app/pkgs.nix                   
+    ./app/zsh.nix                   
+    ./app/qemu.nix
+    ( import ./app/docker.nix {storageDriver = null; inherit pkgs userSettings lib;} )
 
   ];
 
