@@ -14,6 +14,8 @@
       <img src="assets/ezgif-1-4bc10b931c.jpg" alt="desktop" title="desktop"/>
     </a>
   </p>
+  
+*Configuration files for my GNU+Linux system.*
 
   <hr>
 
