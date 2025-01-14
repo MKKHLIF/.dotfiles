@@ -9,13 +9,14 @@
   ![GitHub repo size](https://img.shields.io/github/repo-size/MKKHLIF/.dotfiles?style=for-the-badge&labelColor=3c3836&color=458588) 
   ![GitHub license](https://img.shields.io/github/license/MKKHLIF/.dotfiles?style=for-the-badge&labelColor=3c3836&color=689d6a)
 
+*Configuration files for my GNU+Linux system.*
+
   <p align="center">
     <a href="#">
       <img src="assets/ezgif-1-4bc10b931c.jpg" alt="desktop" title="desktop"/>
     </a>
   </p>
   
-*Configuration files for my GNU+Linux system.*
 
   <hr>
 
