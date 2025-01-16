@@ -13,7 +13,7 @@ in
   imports = [
     
     ./services/default.nix
-    # ./themes/default.nix
+    ./themes/default.nix
     ./desktop/default.nix
     ./cli/default.nix
     ./apps/default.nix
