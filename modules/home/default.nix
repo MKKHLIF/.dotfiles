@@ -42,6 +42,7 @@ in
     pkgs.obsidian
     pkgs.telegram-desktop 
     pkgs.jetbrains.clion
+    pkgs.qbittorrent
   ];
 
   home.stateVersion = "24.05"; # Please read the comment before changing.
