@@ -5,20 +5,14 @@ in
 {
   imports = [
     
-    ./core/grub.nix               
-    ./core/network.nix
-    ./core/audio.nix             
-    ./core/nvidia.nix            
-    ./core/bluetooth.nix
-    ./core/printing.nix         
-    ./core/firewall.nix          
-    ./desktop/sddm.nix       
-    ./desktop/x11/x11.nix    
-    ./stylix/stylix.nix
-    ./app/pkgs.nix                   
-    ./app/zsh.nix                   
-    ./app/qemu.nix
-    ( import ./app/docker.nix {storageDriver = null; inherit pkgs userSettings lib;} )
+    ./hardware
+    ./bootloader
+    ./display-server
+    ./display-manager
+    ./services
+    ./security
+    ./networking
+
 
   ];
 
@@ -57,6 +51,19 @@ in
        
     ];
   };
+
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    lshw
+    htop
+    neofetch
+    git
+    pciutils
+    zip
+    unzip
+  ];
+
 
   # use a custom font directory for storing and loading fonts.
   fonts.fontDir.enable = true;
