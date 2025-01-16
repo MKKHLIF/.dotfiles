@@ -1,15 +1,12 @@
 { inputs, config, lib, pkgs, userSettings, systemSettings, ... }:
 let
-  path-to-script = "~/screen/scripts";
+
 in
 {
-  imports = [
-    ./i3-lock.nix
-  ];
 
   home.file = {
-    "screen/scripts" = {
-      source = ./src/scripts;
+    ".config/i3/scripts" = {
+      source = ../../_config/i3/scripts;
       recursive = true;
       force = true; # Ensures the folder is replaced as a symlink
     };
@@ -169,10 +166,10 @@ in
         "${modifier}+space" = "focus mode_toggle";
 
         # Enable / Disable HDMI-1-1 / eDP-1
-        "${modifier}+Ctrl+d" = "exec ${path-to-script}/display-manager.sh edp-off";
-        "${modifier}+Ctrl+f" = "exec ${path-to-script}/display-manager.sh edp-on";
-        "${modifier}+Shift+d" = "exec ${path-to-script}/display-manager.sh hdmi-off";
-        "${modifier}+Shift+f" = "exec ${path-to-script}/display-manager.sh hdmi-on";
+        "${modifier}+Ctrl+d" = "exec ~/.config/i3/scripts/display-manager.sh edp-off";
+        "${modifier}+Ctrl+f" = "exec ~/.config/i3/scripts/display-manager.sh edp-on";
+        "${modifier}+Shift+d" = "exec ~/.config/i3/scripts/display-manager.sh hdmi-off";
+        "${modifier}+Shift+f" = "exec ~/.config/i3/scripts/display-manager.sh hdmi-on";
 
         "${modifier}+Shift+x" = "exec ~/.config/i3lock/lock.sh";
       };
@@ -216,7 +213,7 @@ in
 
     # Extra configuration
     extraConfig = ''
-      exec --no-startup-id ${path-to-script}/display-init.sh
+      exec --no-startup-id ~/.config/i3/scripts/display-init.sh
       exec --no-startup-id nitrogen --restore
     '';
   };

@@ -15,7 +15,7 @@ in
 
     home.file = {
         ".config/i3lock/lock.sh" = {
-        source = ./src/scripts/lock.sh;
+        source = ../../_config/i3lock/lock.sh;
         force = true; # Ensures the folder is replaced as a symlink
         };
   };

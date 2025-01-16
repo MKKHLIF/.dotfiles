@@ -1,19 +1,16 @@
 { config, pkgs, ... }:
 
 {
-  programs.rofi = {
-    enable = true;
-  };
+  home.packages = with pkgs; [
+    nitrogen
+  ];
 
   home.file = {
-    ".config/rofi" = {
-      source = ./src;
+    ".config/nitrogen" = {
+      source = ../../_config/nitrogen;
       recursive = true;
       force = true; # Ensures the folder is replaced as a symlink
     };
   };
 
-  home.packages = [
-    pkgs.rofi
-  ];
 }

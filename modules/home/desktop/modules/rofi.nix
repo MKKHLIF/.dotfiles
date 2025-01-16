@@ -1,21 +1,19 @@
 { config, pkgs, ... }:
 
 {
-  programs.alacritty = {
+  programs.rofi = {
     enable = true;
-
   };
 
   home.file = {
-    ".config/alacrity" = {
-      source = ./src;
+    ".config/rofi" = {
+      source = ../../_config/rofi;
       recursive = true;
       force = true; # Ensures the folder is replaced as a symlink
     };
   };
 
-  # Optionally, include Alacritty in the PATH
   home.packages = [
-    pkgs.alacritty
+    pkgs.rofi
   ];
 }
