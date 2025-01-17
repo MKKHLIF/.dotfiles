@@ -12,6 +12,7 @@ in
     ./services
     ./security
     ./networking
+    ./apps
 
 
   ];
