@@ -58,7 +58,6 @@ in
     wget
     lshw
     htop
-    neofetch
     git
     pciutils
     zip
