@@ -25,7 +25,6 @@ in
     pkgs.anki
     pkgs.obsidian
     pkgs.telegram-desktop 
-    pkgs.jetbrains.clion
     pkgs.qbittorrent
   ];
 
