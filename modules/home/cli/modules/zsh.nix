@@ -9,6 +9,7 @@
 
     shellAliases = {
       ll = "ls -l";
+      fetch = "fastfetch";
       update = "sudo nixos-rebuild switch";
     };
     history = {
