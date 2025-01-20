@@ -6,5 +6,6 @@
         ./modules/zsh.nix
         ./modules/nvim.nix
         ./modules/fastfetch.nix
+        ./modules/zathura.nix
     ];
 }
