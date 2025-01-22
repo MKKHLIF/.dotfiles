@@ -62,6 +62,7 @@ in
     pciutils
     zip
     unzip
+    inetutils
   ];
 
 
