@@ -81,10 +81,6 @@ echo "Starting services"
 sudo $SCRIPTS_DIR/services.sh
 
 ############# CREATE SYMLINKS #################
-echo "fonts"
-sudo $SCRIPTS_DIR/fonts.sh
-
-############# CREATE SYMLINKS #################
 echo "Creating dotfiles symlinks"
 # need dir path argument 
 sudo $SCRIPTS_DIR/symlinks.sh

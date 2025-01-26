@@ -2,7 +2,6 @@ window {
     margin: 0px;
     border: 1px solid #928374;
     background-color: #282828;
-    border-radius: 5px;
 }
 
 #input {
@@ -11,7 +10,8 @@ window {
     border: none;
     color: #ebdbb2;
     background-color: #1d2021;
-    border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace;  /* Added font */
+    font-size: 12px;  /* Set font size to 12px */
 }
 
 #inner-box {
@@ -38,10 +38,23 @@ window {
 }
 
 #entry {
-    padding: 5px;
+    padding: 6px 10px;  /* Reduced padding */
+    margin: 3px 0px;    /* Row margin stays the same */
+    font-family: 'JetBrains Mono', monospace;  /* Added font */
+    font-size: 12px;  /* Set font size to 12px */
 }
 
+/* Alternate row background colors */
+#entry:nth-child(odd) {
+    background-color: #3c3836; /* Darker background for odd rows */
+}
+
+#entry:nth-child(even) {
+    background-color: #504945; /* Lighter background for even rows */
+}
+
+/* Selected item in Gruvbox blueish */
 #entry:selected {
-    background-color: #1d2021;
-    border-radius: 3px;
+    background-color: #83a598; /* Gruvbox blueish color */
+    color: #282828; /* Ensure text is visible on blueish background */
 }
