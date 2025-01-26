@@ -1,0 +1,28 @@
+[
+    {"name": "jetbrains-mono-fonts", "manager": "zypper"},
+    {"name": "bluez", "manager": "zypper"},
+    {"name": "NetworkManager", "manager": "zypper"},
+    {"name": "hyprland-qtutils", "manager": "zypper"},
+
+    {"name": "hyprland", "manager": "zypper"},
+    {"name": "hyprpaper", "manager": "zypper"},
+    {"name": "hypridle", "manager": "zypper"},
+    {"name": "hyprlock", "manager": "zypper"},
+    {"name": "hyprcursor", "manager": "zypper"},
+    
+    {"name": "waybar", "manager": "zypper"},
+    {"name": "wofi", "manager": "zypper"},
+    {"name": "kitty", "manager": "zypper"},
+    {"name": "dunst", "manager": "zypper"},
+    {"name": "dolphin", "manager": "zypper"},
+    {"name": "fastfetch", "manager": "zypper"},
+    {"name": "zathura", "manager": "zypper"},
+    {"name": "zsh", "manager": "zypper"},
+
+    {"name": "pipewire", "manager": "zypper"},
+    {"name": "wireplumber", "manager": "zypper"},
+    {"name": "xdg-desktop-portal-hyprland", "manager": "zypper"},
+    {"name": "xdg-desktop-portal-gtk", "manager": "zypper"},
+    {"name": "qt6-wayland", "manager": "zypper"},
+    {"name": "hyprpolkitagent", "manager": "zypper"}
+]

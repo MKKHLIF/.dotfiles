@@ -1,0 +1,16 @@
+[
+
+    {"name": "vscode", "manager": "opi"},
+    {"name": "neovim", "manager": "zypper"},
+    {"name": "tmux", "manager": "zypper"},
+    {"name": "docker", "manager": "zypper"},
+    {"name": "docker-compose", "manager": "zypper"},
+    {"name": "wireshark", "manager": "zypper"},
+    {"name": "gcc", "manager": "zypper"},
+    {"name": "make", "manager": "zypper"},
+    {"name": "cmake", "manager": "zypper"},
+    {"name": "yarn", "manager": "zypper"},
+    {"name": "npm", "manager": "zypper"},
+    {"name": "cargo", "manager": "zypper"},
+    {"name": "rust", "manager": "zypper"}
+]
