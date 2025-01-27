@@ -22,6 +22,13 @@
 
 </div>
 
+
+## Installation
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/MKKHLIF/.dotfiles/main/setup.sh | bash
+```
+
 > **⚠️ Warning:**  
 > This setup may not work on your machine as is.  
 > Be sure to review the source packages and configuration options carefully before installing.
