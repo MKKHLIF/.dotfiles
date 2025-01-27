@@ -13,9 +13,9 @@ echo -e "\e[0m"
 
 ############# VARIABLES #################
 
-SCRIPTS_DIR="scripts/"
-CONFIG_DIR="config/"
-PACKAGES_DIR="packages/"
+SCRIPTS_DIR="."
+CONFIG_DIR="./config"
+PACKAGES_DIR="./packages"
 GIT_NAME="mk"
 GIT_EMAIL="example@example.example"
 
