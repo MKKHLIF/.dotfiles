@@ -9,6 +9,11 @@
     {"name": "hypridle", "manager": "zypper"},
     {"name": "hyprlock", "manager": "zypper"},
     {"name": "hyprcursor", "manager": "zypper"},
+
+    {"name": "slurp", "manager": "zypper"},
+    {"name": "grim", "manager": "zypper"},
+    {"name": "swappy", "manager": "zypper"},
+
     
     {"name": "waybar", "manager": "zypper"},
     {"name": "wofi", "manager": "zypper"},
