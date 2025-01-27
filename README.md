@@ -13,7 +13,7 @@
 
   <p align="center">
     <a href="#">
-      <img src="assets/ezgif-1-4bc10b931c.jpg" alt="desktop" title="desktop"/>
+      <img src="assets/wm.png" alt="desktop" title="desktop"/>
     </a>
   </p>
   
