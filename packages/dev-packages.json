@@ -1,8 +1,8 @@
 [
-
     {"name": "vscode", "manager": "opi"},
     {"name": "neovim", "manager": "zypper"},
     {"name": "tmux", "manager": "zypper"},
+    {"name": "com.jetbrains.CLion", "manager": "flatpak"},
     {"name": "docker", "manager": "zypper"},
     {"name": "docker-compose", "manager": "zypper"},
     {"name": "wireshark", "manager": "zypper"},
