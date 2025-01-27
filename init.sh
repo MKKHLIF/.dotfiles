@@ -85,6 +85,8 @@ echo "Creating dotfiles symlinks"
 # need dir path argument 
 sudo $SCRIPTS_DIR/symlinks.sh
 
+############# OH MY ZSH #################
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Reboot Now? (y/n)"
 # to do ...
