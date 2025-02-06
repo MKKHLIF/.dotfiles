@@ -3,46 +3,46 @@ name: Update NixOS Flake
 on:
   schedule:
     # Runs at 00:00 every 2 days
-    - cron: '0 0 */1 * *'
+    - cron: '0 0 */30 * *'
   workflow_dispatch:  # Allows manual triggering
 
-permissions:
-  contents: write  # Allows pushing to the repository
+# permissions:
+#   contents: write  # Allows pushing to the repository
 
-jobs:
-  update-flake:
-    runs-on: ubuntu-latest
+# jobs:
+#   update-flake:
+#     runs-on: ubuntu-latest
     
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
 
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+#       - name: Install Nix
+#         uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Update flake inputs
-        run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+#       - name: Update flake inputs
+#         run: |
+#           git config --global user.name "GitHub Actions Bot"
+#           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # Pull latest changes
-          git pull origin main
+#           # Pull latest changes
+#           git pull origin main
           
-          # Update flake.lock
-          nix flake update
+#           # Update flake.lock
+#           nix flake update
           
-          # Check if there are any changes
-          if git diff --quiet; then
-            echo "No updates available"
-            exit 0
-          fi
+#           # Check if there are any changes
+#           if git diff --quiet; then
+#             echo "No updates available"
+#             exit 0
+#           fi
           
-          # Get current timestamp
-          TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
+#           # Get current timestamp
+#           TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
           
-          # Commit and push changes directly to main
-          git add flake.lock
-          git commit -m "chore: update flake inputs (${TIMESTAMP})"
-          git push origin main
+#           # Commit and push changes directly to main
+#           git add flake.lock
+#           git commit -m "chore: update flake inputs (${TIMESTAMP})"
+#           git push origin main
