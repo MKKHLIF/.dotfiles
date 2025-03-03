@@ -2,7 +2,7 @@
 
 # Configuration
 GITHUB_USER="MKKHLIF"
-REPO_NAME="nixos-config"
+REPO_NAME="dotfiles"
 DOTFILES_DIR="$HOME/.dotfiles"
 
 RED='\033[0;31m'
