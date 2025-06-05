@@ -1,13 +1,17 @@
 #!/bin/bash
 
-# Configuration
+if [ "$EUID" -ne 0 ]; then
+  echo "Please run this script with sudo or as root."
+  exit 1
+fi
+
 GITHUB_USER="MKKHLIF"
 REPO_NAME=".dotfiles"
 DOTFILES_DIR="$HOME/.dotfiles"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
 print_status() {
     echo -e "${GREEN}==>${NC} $1"
@@ -24,14 +28,11 @@ if [ "$(id -u)" != "0" ] && ! command -v git >/dev/null 2>&1; then
 fi
 
 if ! command -v git >/dev/null 2>&1; then
-    print_status "Installing git using zypper..."
     zypper --non-interactive install git
-    
     if [ $? -ne 0 ]; then
-        print_error "Failed to install git"
+        print_error "Failed to install git!"
         exit 1
     fi
-    print_status "Git installed successfully"
 fi
 
 # Remove existing dotfiles directory if it exists
@@ -55,17 +56,30 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# Change to the dotfiles directory
 cd "$DOTFILES_DIR" || exit
 
 # Check if install script exists and is executable
-if [ -f "./install.sh" ]; then
-    print_status "Running install script..."
-    chmod +x ./install.sh
-    ./install.sh
+if [ -f "./opensuse.sh" ]; then
+    chmod +x ./opensuse.sh
+    sudo ./opensuse.sh
 else
-    print_error "Install script not found"
+    print_error "script not found"
     exit 1
 fi
 
-print_status "Dotfiles setup completed successfully!"
+
+
+############# REBOOT #################
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+echo -e "${RED}Reboot Now? (y/n)${NC}"
+read -r REBOOT_CHOICE
+
+if [[ "$REBOOT_CHOICE" =~ ^[Yy]$ ]]; then
+    echo "Rebooting..."
+    sudo reboot
+else
+    echo "Reboot canceled."
+fi

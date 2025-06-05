@@ -1,9 +1,0 @@
-[
-    {"name": "git", "manager": "zypper"},
-    {"name": "curl", "manager": "zypper"},
-    {"name": "wget", "manager": "zypper"},
-    {"name": "ntfs-3g", "manager": "zypper"},
-    {"name": "htop", "manager": "zypper"},
-    {"name": "codecs", "manager": "opi"},
-    {"name": "vlc", "manager": "zypper"}
-]
