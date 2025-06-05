@@ -120,6 +120,21 @@ for group in "${groups_to_add[@]}"; do
     fi
 done
 
+
+############# SDDM #################
+
+yes 1 | sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/MKKHLIF/sddm-astronaut-theme/master/setup.sh)"
+
+############# ZSH #################
+
+if [ -d "$HOME/.oh-my-zsh" ]; then
+    echo "Oh My Zsh is already installed."
+else
+    echo "Installing Oh My Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+
 ############# SYMLINKS #################
 
 SOURCE_DIR="./config"
@@ -154,12 +169,4 @@ create_symlinks "$SOURCE_DIR" "$TARGET_DIR"
 create_symlinks "$SOURCE_DIR" "/home/mk/.local/share/icons"
 
 
-############# ZSH #################
-
-if [ -d "$HOME/.oh-my-zsh" ]; then
-    echo "Oh My Zsh is already installed."
-else
-    echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
 
