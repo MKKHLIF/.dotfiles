@@ -26,7 +26,7 @@
 ## Installation
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/MKKHLIF/.dotfiles/main/setup.sh | bash
+curl -fsSL https://raw.githubusercontent.com/MKKHLIF/.dotfiles/main/setup.sh | sudo bash
 ```
 
 > **⚠️ Warning:**  
