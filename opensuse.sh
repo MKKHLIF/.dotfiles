@@ -65,9 +65,9 @@ packages=(
   hyprland hyprpaper hypridle hyprlock hyprcursor slurp grim swappy waybar wofi kitty dunst dolphin fastfetch zathura zsh
   pipewire wireplumber xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6-wayland hyprpolkitagent neovim tmux docker
   docker-compose wireshark gcc make cmake yarn npm cargo rust git curl wget ntfs-3g htop vlc
-  qtile rofi picom nitrogen xrandr arandr conky
+  qtile rofi dmenu picom nitrogen xrandr arandr conky
 )
-
+ 
 to_install=()
 for pkg in "${packages[@]}"; do
   if ! rpm -q "$pkg" &>/dev/null; then
@@ -122,9 +122,12 @@ for group in "${groups_to_add[@]}"; do
 done
 
 
+OLDPWD=$(pwd)
+
 ############# SDDM #################
 
 yes 1 | sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/MKKHLIF/sddm-astronaut-theme/master/setup.sh)"
+cd "$OLDPWD"
 
 ############# ZSH #################
 
@@ -134,14 +137,11 @@ else
     echo "Installing Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-
+cd "$OLDPWD"
 
 ############# SYMLINKS #################
 
 SOURCE_DIR="./config"
-TARGET_DIR="$HOME/.config"
-
-mkdir -p "$TARGET_DIR"
 
 create_symlinks() {
   local src_dir="$1"
@@ -166,7 +166,8 @@ create_symlinks() {
   done
 }
 
-create_symlinks "$SOURCE_DIR" "$TARGET_DIR"
+mkdir -p "/home/mk/.config"
+create_symlinks "$SOURCE_DIR" "/home/mk/.config"
 create_symlinks "$SOURCE_DIR" "/home/mk/.local/share/icons"
 
 
