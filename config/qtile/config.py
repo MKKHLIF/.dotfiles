@@ -31,9 +31,9 @@ keys = [
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Open terminal"),
     Key([mod], "Tab", lazy.next_layout(), desc="Switch layout"),
-    Key([mod], "q", lazy.window.kill(), desc="Close window"),
+    Key([mod], "c", lazy.window.kill(), desc="Close window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload Qtile"),
-    Key([mod], "r", lazy.spawn("rofi -show run"), desc="Run launcher"),
+    Key([mod], "r", lazy.spawn("rofi -show drun -refresh-desktop-cache"), desc="Run launcher"),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     Key([mod, "shift"], "d", lazy.function(toggle_edp1), desc="Toggle eDP-1"),
 
