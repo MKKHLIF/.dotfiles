@@ -19,6 +19,35 @@ def toggle_edp1(qtile):
     else:
         subprocess.run("xrandr --output eDP-1 --mode 1920x1080 --rate 120 --right-of HDMI-1-1", shell=True)
 
+def show_power_menu(qtile):
+    """Show power menu using rofi with inline options"""
+    power_options = [
+        "shutdown",
+        "reboot", 
+        "sleep",
+        "hibernate"
+    ]
+    
+    options_str = "\\n".join(power_options)
+    rofi_cmd = f'echo -e "{options_str}" | rofi -dmenu -p "Power:" -theme-str "window {{width: 20%;}}"'
+    
+    try:
+        # Get user selection
+        result = subprocess.check_output(rofi_cmd, shell=True, text=True).strip()
+        
+        # Execute the selected action
+        if result == "shutdown":
+            subprocess.run("systemctl poweroff", shell=True)
+        elif result == "reboot":
+            subprocess.run("systemctl reboot", shell=True)
+        elif result == "sleep":
+            subprocess.run("systemctl suspend", shell=True)
+        elif result == "hibernate":
+            subprocess.run("systemctl hibernate", shell=True)
+    except subprocess.CalledProcessError:
+        # User cancelled or no selection made
+        pass
+
 keys = [
     Key([mod], "h", lazy.layout.left(), desc="Move focus left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus right"),
@@ -34,8 +63,10 @@ keys = [
     Key([mod], "c", lazy.window.kill(), desc="Close window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload Qtile"),
     Key([mod], "r", lazy.spawn("rofi -show drun -refresh-desktop-cache"), desc="Run launcher"),
+    Key([mod], "d", lazy.spawn("rofi -show drun -refresh-desktop-cache"), desc="Run launcher"),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     Key([mod, "shift"], "d", lazy.function(toggle_edp1), desc="Toggle eDP-1"),
+    Key([mod, "shift"], "q", lazy.function(show_power_menu), desc="Power menu"),
 
     # Brightness
     Key([mod], "F5", lazy.spawn("brightnessctl set 5%-"), desc="Brightness down"),
@@ -80,8 +111,8 @@ colors = {
 def get_bluetooth_status():
     output = subprocess.getoutput("bluetoothctl show")
     if "Powered: yes" in output:
-        return " ON"
-    return " OFF"
+        return " ON"
+    return " OFF"
 
 def get_internet_status():
     # Check if default route exists (means connected)
@@ -152,8 +183,6 @@ screens = [
                 widget.TextBox(text=" |", foreground=colors["gray"]),
                 widget.Clock(format="%a %b %d %H:%M", foreground=colors["fg"]),
                 widget.Systray(),
-                widget.TextBox(text=" |", foreground=colors["red"]),
-                widget.TextBox(text=" ⏻ ", foreground=colors["red"], mouse_callbacks={"Button1": lazy.shutdown()}),
             ],
             22,
             background=colors["bg"],
@@ -177,6 +206,8 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),
         Match(title="branchdialog"),
         Match(title="pinentry"),
+        Match(title="Bluetooth Devices"),
+        Match(title="Network Connections"),
     ]
 )
 
@@ -196,4 +227,4 @@ wl_xcursor_size = 24
 wmname = "LG3D"
 
 # Dependencies:
-# qtile kitty rofi xrandr nitrogen nmcli blueman pavucontrol acpi upower brightnessctl pulseaudio-utils bluez bluez-tools NetworkManager-applet
+# qtile kitty rofi xrandr nitrogen nmcli blueman pavucontrol acpi upower brightnessctl pulseaudio-utils bluez bluez-tools NetworkManager-applet 
