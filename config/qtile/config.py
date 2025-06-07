@@ -11,6 +11,9 @@ terminal = "kitty"
 def autostart():
     subprocess.run("xrandr --output eDP-1 --mode 1920x1080 --rate 120 --rotate normal --output HDMI-1-1 --primary --mode 1920x1080 --rate 120 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off", shell=True)
     subprocess.run("nitrogen --restore", shell=True)
+    subprocess.run("picom &", shell=True)
+
+
 
 def toggle_edp1(qtile):
     status = subprocess.getoutput("xrandr --listmonitors")
