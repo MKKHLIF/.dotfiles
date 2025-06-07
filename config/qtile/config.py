@@ -13,8 +13,6 @@ def autostart():
     subprocess.run("nitrogen --restore", shell=True)
     subprocess.run("picom &", shell=True)
 
-
-
 def toggle_edp1(qtile):
     status = subprocess.getoutput("xrandr --listmonitors")
     if "eDP-1" in status:
@@ -23,22 +21,11 @@ def toggle_edp1(qtile):
         subprocess.run("xrandr --output eDP-1 --mode 1920x1080 --rate 120 --right-of HDMI-1-1", shell=True)
 
 def show_power_menu(qtile):
-    """Show power menu using rofi with inline options"""
-    power_options = [
-        "shutdown",
-        "reboot", 
-        "sleep",
-        "hibernate"
-    ]
-    
+    power_options = ["shutdown", "reboot", "sleep", "hibernate"]
     options_str = "\\n".join(power_options)
     rofi_cmd = f'echo -e "{options_str}" | rofi -dmenu -p "Power:" -theme-str "window {{width: 20%;}}"'
-    
     try:
-        # Get user selection
         result = subprocess.check_output(rofi_cmd, shell=True, text=True).strip()
-        
-        # Execute the selected action
         if result == "shutdown":
             subprocess.run("systemctl poweroff", shell=True)
         elif result == "reboot":
@@ -48,7 +35,6 @@ def show_power_menu(qtile):
         elif result == "hibernate":
             subprocess.run("systemctl hibernate", shell=True)
     except subprocess.CalledProcessError:
-        # User cancelled or no selection made
         pass
 
 keys = [
@@ -70,12 +56,8 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
     Key([mod, "shift"], "d", lazy.function(toggle_edp1), desc="Toggle eDP-1"),
     Key([mod, "shift"], "q", lazy.function(show_power_menu), desc="Power menu"),
-
-    # Brightness
     Key([mod], "F5", lazy.spawn("brightnessctl set 5%-"), desc="Brightness down"),
     Key([mod], "F6", lazy.spawn("brightnessctl set +5%"), desc="Brightness up"),
-
-    # Volume
     Key([mod], "F1", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc="Mute"),
     Key([mod], "F2", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"), desc="Volume down"),
     Key([mod], "F3", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"), desc="Volume up"),
@@ -88,8 +70,28 @@ for i in groups:
         Key([mod, "shift"], i.name, lazy.window.togroup(i.name), desc=f"Send to group {i.name}"),
     ])
 
+colors = {
+    "bg": "#282828",
+    "fg": "#ebdbb2",
+    "gray": "#a89984",
+    "yellow": "#fabd2f",
+    "blue": "#83a598",
+    "green": "#b8bb26",
+    "red": "#fb4934",
+    "orange": "#fe8019",
+    "border_focus":"#83a598",
+    "border_normal": "#3c3836",
+    "border_float":  "#b8bb26",
+}
+
 layouts = [
-    layout.Columns(border_focus="#fabd2f", border_normal="#282828", border_width=2),
+    layout.Columns(
+        border_focus=colors["border_focus"],
+        border_focus_stack=colors["yellow"],
+        border_normal=colors["border_normal"],
+        border_width=1,
+        margin=6,
+    ),
     layout.Max(),
 ]
 
@@ -100,37 +102,19 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-colors = {
-    "bg": "#282828",
-    "fg": "#ebdbb2",
-    "gray": "#a89984",
-    "yellow": "#fabd2f",
-    "blue": "#83a598",
-    "green": "#b8bb26",
-    "red": "#fb4934",
-    "orange": "#fe8019",
-}
-
 def get_bluetooth_status():
     output = subprocess.getoutput("bluetoothctl show")
-    if "Powered: yes" in output:
-        return " ON"
-    return " OFF"
+    return " ON" if "Powered: yes" in output else " OFF"
 
 def get_internet_status():
-    # Check if default route exists (means connected)
     route = subprocess.getoutput("ip route show default")
     if not route:
         return "Disconnected"
-
-    # Get default interface from route line
     default_iface = route.split()[4] if len(route.split()) > 4 else ""
-
-    # Identify connection type
-    if default_iface.startswith("wl"):  # wireless
+    if default_iface.startswith("wl"):
         ssid = subprocess.getoutput("nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d':' -f2").strip()
         return f"WiFi: {ssid}" if ssid else "WiFi: Connected"
-    elif default_iface.startswith("en") or default_iface.startswith("eth"):  # ethernet
+    elif default_iface.startswith("en") or default_iface.startswith("eth"):
         return "Ethernet: Connected"
     else:
         return f"Connected ({default_iface})"
@@ -201,6 +185,9 @@ mouse = [
 ]
 
 floating_layout = layout.Floating(
+    border_focus=colors["border_float"],
+    border_normal=colors["border_normal"],
+    border_width=1,
     float_rules=[
         *layout.Floating.default_float_rules,
         Match(wm_class="confirmreset"),
