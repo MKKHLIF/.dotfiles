@@ -65,7 +65,7 @@ packages=(
   hyprland hyprpaper hypridle hyprlock hyprcursor slurp grim swappy waybar wofi kitty dunst dolphin fastfetch zathura zsh
   pipewire wireplumber xdg-desktop-portal-hyprland xdg-desktop-portal-gtk qt6-wayland hyprpolkitagent neovim tmux docker
   docker-compose wireshark gcc make cmake yarn npm cargo rust git curl wget ntfs-3g htop vlc
-  qtile rofi dmenu picom nitrogen xrandr arandr conky
+  qtile rofi dmenu picom nitrogen xrandr arandr conky blueman acpi upower brightnessctl pulseaudio-utils bluez NetworkManager-applet qBittorrent
 )
  
 to_install=()
