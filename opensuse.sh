@@ -86,8 +86,6 @@ sudo flatpak install -y flathub com.discordapp.Discord
 sudo flatpak install -y flathub md.obsidian.Obsidian
 sudo flatpak install -y flathub org.telegram.desktop
 sudo flatpak install -y flathub net.ankiweb.Anki
-sudo flatpak install -y flathub com.jetbrains.CLion
-sudo flatpak install -y flathub com.jetbrains.WebStorm
 
 ############# SERVICES #################
 
