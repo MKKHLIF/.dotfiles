@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Ensure the script is run as root
 if [ "$EUID" -ne 0 ]; then
   echo "Please run this script with sudo or as root."
   exit 1
@@ -7,7 +8,7 @@ fi
 
 GITHUB_USER="MKKHLIF"
 REPO_NAME=".dotfiles"
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="$HOME/.dotfiles"  # This will be correct as $HOME will be set properly
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -35,11 +36,14 @@ if ! command -v git >/dev/null 2>&1; then
     fi
 fi
 
-# Remove existing dotfiles directory if it exists
+# Detect original user's home directory (this works even with sudo)
+USER_HOME=$(eval echo ~$SUDO_USER)
+DOTFILES_DIR="$USER_HOME/.dotfiles"  # Use the user's home directory
+
 if [ -d "$DOTFILES_DIR" ]; then
     print_status "Existing dotfiles directory found. Removing..."
     rm -rf "$DOTFILES_DIR"
-    
+
     if [ $? -ne 0 ]; then
         print_error "Failed to remove existing dotfiles directory"
         exit 1
@@ -47,7 +51,6 @@ if [ -d "$DOTFILES_DIR" ]; then
     print_status "Existing dotfiles directory removed successfully"
 fi
 
-# Clone the repository
 print_status "Cloning dotfiles repository..."
 git clone "https://github.com/$GITHUB_USER/$REPO_NAME.git" "$DOTFILES_DIR"
 
@@ -58,16 +61,35 @@ fi
 
 cd "$DOTFILES_DIR" || exit
 
-# Check if install script exists and is executable
-if [ -f "./opensuse.sh" ]; then
-    chmod +x ./opensuse.sh
-    sudo ./opensuse.sh
+# Check the OS and run the corresponding script
+if [[ -f /etc/os-release ]]; then
+    . /etc/os-release
+    if [[ "$ID" == "arch" ]]; then
+        print_status "Detected Arch Linux. Running Arch installation script..."
+        if [ -f "./scripts/arch/main.sh" ]; then
+            chmod +x ./scripts/arch/main.sh
+            sudo ./scripts/arch/main.sh
+        else
+            print_error "Arch script not found!"
+            exit 1
+        fi
+    elif [[ "$ID" == "opensuse" ]]; then
+        print_status "Detected openSUSE. Running openSUSE installation script..."
+        if [ -f "./scripts/opensuse/main.sh" ]; then
+            chmod +x ./scripts/opensuse/main.sh
+            sudo ./scripts/opensuse/main.sh
+        else
+            print_error "openSUSE script not found!"
+            exit 1
+        fi
+    else
+        print_error "Unsupported distribution: $ID"
+        exit 1
+    fi
 else
-    print_error "script not found"
+    print_error "/etc/os-release not found, unable to determine OS."
     exit 1
 fi
-
-
 
 ############# REBOOT #################
 
@@ -83,3 +105,4 @@ if [[ "$REBOOT_CHOICE" =~ ^[Yy]$ ]]; then
 else
     echo "Reboot canceled."
 fi
+
