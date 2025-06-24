@@ -8,7 +8,6 @@ fi
 
 GITHUB_USER="MKKHLIF"
 REPO_NAME=".dotfiles"
-DOTFILES_DIR="$HOME/.dotfiles"  # This will be correct as $HOME will be set properly
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -22,13 +21,9 @@ print_error() {
     echo -e "${RED}==>${NC} $1"
 }
 
-# Check if running as root and re-run with sudo if needed
-if [ "$(id -u)" != "0" ] && ! command -v git >/dev/null 2>&1; then
-    print_status "Git is not installed. Requesting sudo privileges to install it..."
-    exec sudo "$0" "$@"
-fi
-
+# Ensure git is installed
 if ! command -v git >/dev/null 2>&1; then
+    print_status "Git is not installed. Installing..."
     zypper --non-interactive install git
     if [ $? -ne 0 ]; then
         print_error "Failed to install git!"
@@ -36,48 +31,47 @@ if ! command -v git >/dev/null 2>&1; then
     fi
 fi
 
-# Detect original user's home directory (this works even with sudo)
-USER_HOME=$(eval echo ~$SUDO_USER)
-DOTFILES_DIR="$USER_HOME/.dotfiles"  # Use the user's home directory
+# Detect original user's home directory
+ACTUAL_USER=${SUDO_USER:-$USER}
+USER_HOME=$(getent passwd "$ACTUAL_USER" | cut -d: -f6)
+DOTFILES_DIR="$USER_HOME/.dotfiles"
 
+# Clean existing dotfiles dir if it exists
 if [ -d "$DOTFILES_DIR" ]; then
-    print_status "Existing dotfiles directory found. Removing..."
-    rm -rf "$DOTFILES_DIR"
-
-    if [ $? -ne 0 ]; then
+    print_status "Removing existing dotfiles directory..."
+    rm -rf "$DOTFILES_DIR" || {
         print_error "Failed to remove existing dotfiles directory"
         exit 1
-    fi
-    print_status "Existing dotfiles directory removed successfully"
+    }
+    print_status "Existing dotfiles directory removed"
 fi
 
+# Clone repo
 print_status "Cloning dotfiles repository..."
-git clone "https://github.com/$GITHUB_USER/$REPO_NAME.git" "$DOTFILES_DIR"
-
-if [ $? -ne 0 ]; then
+git clone "https://github.com/$GITHUB_USER/$REPO_NAME.git" "$DOTFILES_DIR" || {
     print_error "Failed to clone repository"
     exit 1
-fi
+}
 
-cd "$DOTFILES_DIR" || exit
+cd "$DOTFILES_DIR" || exit 1
 
-# Check the OS and run the corresponding script
+# OS detection
 if [[ -f /etc/os-release ]]; then
     . /etc/os-release
     if [[ "$ID" == "arch" ]]; then
-        print_status "Detected Arch Linux. Running Arch installation script..."
-        if [ -f "./scripts/arch/main.sh" ]; then
+        print_status "Detected Arch Linux. Running Arch script..."
+        if [[ -f "./scripts/arch/main.sh" ]]; then
             chmod +x ./scripts/arch/main.sh
-            sudo ./scripts/arch/main.sh
+            sudo ACTUAL_USER="$ACTUAL_USER" ./scripts/arch/main.sh
         else
             print_error "Arch script not found!"
             exit 1
         fi
     elif [[ "$ID" == "opensuse" ]]; then
-        print_status "Detected openSUSE. Running openSUSE installation script..."
-        if [ -f "./scripts/opensuse/main.sh" ]; then
+        print_status "Detected openSUSE. Running openSUSE script..."
+        if [[ -f "./scripts/opensuse/main.sh" ]]; then
             chmod +x ./scripts/opensuse/main.sh
-            sudo ./scripts/opensuse/main.sh
+            sudo ACTUAL_USER="$ACTUAL_USER" ./scripts/opensuse/main.sh
         else
             print_error "openSUSE script not found!"
             exit 1
@@ -87,22 +81,17 @@ if [[ -f /etc/os-release ]]; then
         exit 1
     fi
 else
-    print_error "/etc/os-release not found, unable to determine OS."
+    print_error "/etc/os-release not found"
     exit 1
 fi
 
-############# REBOOT #################
-
-RED='\033[0;31m'
-NC='\033[0m'
-
+# Optional reboot prompt
 echo -e "${RED}Reboot Now? (y/n)${NC}"
 read -r REBOOT_CHOICE
 
 if [[ "$REBOOT_CHOICE" =~ ^[Yy]$ ]]; then
     echo "Rebooting..."
-    sudo reboot
+    reboot
 else
     echo "Reboot canceled."
 fi
-
