@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Ensure the script is run as root
 if [ "$EUID" -ne 0 ]; then
   echo "Please run this script with sudo or as root."
   exit 1
@@ -8,6 +7,10 @@ fi
 
 GITHUB_USER="MKKHLIF"
 REPO_NAME=".dotfiles"
+
+ACTUAL_USER="mk"
+USER_HOME="/home/$ACTUAL_USER"
+DOTFILES_DIR="$USER_HOME/$REPO_NAME"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -21,7 +24,6 @@ print_error() {
     echo -e "${RED}==>${NC} $1"
 }
 
-# Ensure git is installed
 if ! command -v git >/dev/null 2>&1; then
     print_status "Git is not installed. Installing..."
     zypper --non-interactive install git
@@ -31,11 +33,6 @@ if ! command -v git >/dev/null 2>&1; then
     fi
 fi
 
-ACTUAL_USER="mk"
-USER_HOME="/home/mk"
-DOTFILES_DIR="$USER_HOME/.dotfiles"
-
-# Clean existing dotfiles dir if it exists
 if [ -d "$DOTFILES_DIR" ]; then
     print_status "Removing existing dotfiles directory..."
     rm -rf "$DOTFILES_DIR" || {
@@ -45,16 +42,17 @@ if [ -d "$DOTFILES_DIR" ]; then
     print_status "Existing dotfiles directory removed"
 fi
 
-# Clone repo
+# Clone the repository
 print_status "Cloning dotfiles repository..."
 git clone "https://github.com/$GITHUB_USER/$REPO_NAME.git" "$DOTFILES_DIR" || {
     print_error "Failed to clone repository"
     exit 1
 }
 
+chown -R "$ACTUAL_USER:$ACTUAL_USER" "$DOTFILES_DIR"
+
 cd "$DOTFILES_DIR" || exit 1
 
-# OS detection
 if [[ -f /etc/os-release ]]; then
     . /etc/os-release
     if [[ "$ID" == "arch" ]]; then
@@ -84,7 +82,6 @@ else
     exit 1
 fi
 
-# Optional reboot prompt
 echo -e "${RED}Reboot Now? (y/n)${NC}"
 read -r REBOOT_CHOICE
 
