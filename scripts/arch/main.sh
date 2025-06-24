@@ -13,7 +13,7 @@ echo "  / ___ \| | | (__| | | | | |___| | | | | |_| |>  < "
 echo " /_/   \_\_|  \___|_| |_| |_____|_|_| |_|\__,_/_/\_\\"
 echo -e "\e[0m"
 
-# Detect the real user who owns the dotfiles
+# Detect the real user who owns the dotfiles (TO FIX)
 if [ "$EUID" -eq 0 ]; then
     ACTUAL_USER=${ACTUAL_USER:-$SUDO_USER}
 else
@@ -21,7 +21,7 @@ else
 fi
 
 USER_HOME=$(getent passwd "$ACTUAL_USER" | cut -d: -f6)
-SCRIPT_DIR="$USER_HOME/.dotfiles/scripts"
+SCRIPT_DIR="/home/mk/.dotfiles/scripts"
 
 print_section() {
   echo -e "\n\e[1;35m========== $1 ==========\e[0m"
