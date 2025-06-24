@@ -13,39 +13,48 @@ echo "  / ___ \| | | (__| | | | | |___| | | | | |_| |>  < "
 echo " /_/   \_\_|  \___|_| |_| |_____|_|_| |_|\__,_/_/\_\\"
 echo -e "\e[0m"
 
+if [ "$EUID" -eq 0 ]; then
+    ACTUAL_USER=${SUDO_USER:-root}
+else
+    ACTUAL_USER=$USER
+fi
+
+USER_HOME=$(eval echo ~$ACTUAL_USER)
+SCRIPT_DIR="$USER_HOME/.dotfiles/scripts"
+
 print_section() {
   echo -e "\n\e[1;35m========== $1 ==========\e[0m"
 }
 
 print_section "Refreshing Mirrors"
-./refresh_mirrors.sh
+"$SCRIPT_DIR/refresh_mirrors.sh"
 
 print_section "Git Setup"
-./git_setup.sh
+"$SCRIPT_DIR/git_setup.sh"
 
 print_section "Installing AUR Helpers"
-./aur_helpers.sh
+"$SCRIPT_DIR/aur_helpers.sh"
 
 print_section "Installing Flatpak Packages"
-./flatpak.sh
+"$SCRIPT_DIR/flatpak.sh"
 
 print_section "Installing Core Packages"
-./packages.sh
+"$SCRIPT_DIR/packages.sh"
 
 print_section "Enabling Services"
-./services.sh
+"$SCRIPT_DIR/services.sh"
 
 print_section "Creating User Groups"
-./groups.sh
+"$SCRIPT_DIR/groups.sh"
 
 print_section "Creating Symlinks"
-./symlinks.sh
+"$SCRIPT_DIR/symlinks.sh"
 
 print_section "Setting Up ZSH"
-./zsh_setup.sh
+"$SCRIPT_DIR/zsh_setup.sh"
 
 print_section "Setting Up GRUB"
-./grub_setup.sh
+"$SCRIPT_DIR/grub_setup.sh"
 
 print_section "Configuring SDDM Theme"
-./sddm.sh
+"$SCRIPT_DIR/sddm.sh"
