@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-ACTUAL_USER="${SUDO_USER:-$USER}"
+ACTUAL_USER="mk"
 
 groups_to_add=("libvirt" "docker" "video" "audio" "wheel" "wireshark" "kvm")
 
