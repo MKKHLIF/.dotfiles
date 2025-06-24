@@ -7,8 +7,8 @@ fi
 
 pacman -S --noconfirm git
 
-REAL_USER="${SUDO_USER:-$USER}"
-USER_HOME=$(eval echo "~$REAL_USER")
+REAL_USER="mk"
+USER_HOME="/home/mk"
 SSH_DIR="$USER_HOME/.ssh"
 KEY_FILE="$SSH_DIR/id_ed25519"
 KNOWN_HOSTS="$SSH_DIR/known_hosts"
