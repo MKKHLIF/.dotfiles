@@ -21,7 +21,7 @@ else
 fi
 
 USER_HOME=$(getent passwd "$ACTUAL_USER" | cut -d: -f6)
-SCRIPT_DIR="/home/mk/.dotfiles/scripts"
+SCRIPT_DIR="/home/mk/.dotfiles/scripts/arch"
 
 print_section() {
   echo -e "\n\e[1;35m========== $1 ==========\e[0m"
