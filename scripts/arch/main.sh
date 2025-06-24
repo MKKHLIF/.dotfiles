@@ -19,7 +19,7 @@ else
     ACTUAL_USER=$USER
 fi
 
-USER_HOME=$(eval echo ~$ACTUAL_USER)
+USER_HOME=$(getent passwd "$ACTUAL_USER" | cut -d: -f6)
 SCRIPT_DIR="$USER_HOME/.dotfiles/scripts"
 
 print_section() {
