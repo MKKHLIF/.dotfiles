@@ -1,26 +1,33 @@
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile import hook
 import subprocess
 
 mod = "mod4"
 terminal = "kitty"
+hdmi_monitor = "HDMI-1-0"
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.run("xrandr --output eDP-1 --mode 1920x1080 --rate 120 --rotate normal --output HDMI-1-1 --primary --mode 1920x1080 --rate 120 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off", shell=True)
+    subprocess.run(
+        f"xrandr --output eDP-1 --mode 1920x1080 --rate 120 --rotate normal "
+        f"--output {hdmi_monitor} --primary --mode 1920x1080 --rate 120 --rotate normal "
+        f"--output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off",
+        shell=True
+    )
     subprocess.run("nitrogen --restore", shell=True)
     subprocess.run("picom &", shell=True)
     subprocess.Popen(["nm-applet"])
-
 
 def toggle_edp1(qtile):
     status = subprocess.getoutput("xrandr --listmonitors")
     if "eDP-1" in status:
         subprocess.run("xrandr --output eDP-1 --off", shell=True)
     else:
-        subprocess.run("xrandr --output eDP-1 --mode 1920x1080 --rate 120 --right-of HDMI-1-1", shell=True)
+        subprocess.run(
+            f"xrandr --output eDP-1 --mode 1920x1080 --rate 120 --right-of {hdmi_monitor}",
+            shell=True
+        )
 
 def show_power_menu(qtile):
     power_options = ["shutdown", "reboot", "sleep", "hibernate"]
@@ -86,9 +93,9 @@ colors = {
     "green": "#b8bb26",
     "red": "#fb4934",
     "orange": "#fe8019",
-    "border_focus":"#83a598",
+    "border_focus": "#83a598",
     "border_normal": "#3c3836",
-    "border_float":  "#b8bb26",
+    "border_float": "#b8bb26",
 }
 
 layouts = [
@@ -223,5 +230,3 @@ wl_xcursor_theme = None
 wl_xcursor_size = 24
 wmname = "LG3D"
 
-# Dependencies:
-# qtile kitty rofi xrandr nitrogen nmcli blueman pavucontrol acpi upower brightnessctl pulseaudio-utils bluez bluez-tools NetworkManager-applet 
