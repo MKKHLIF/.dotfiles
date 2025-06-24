@@ -2,12 +2,12 @@
 
 # Detect the actual user, even if running with sudo
 if [ "$EUID" -eq 0 ]; then
-    ACTUAL_USER=${SUDO_USER:-root}
+    ACTUAL_USER="mk"
 else
-    ACTUAL_USER=$USER
+    ACTUAL_USER="mk"
 fi
 
-USER_HOME=$(eval echo ~$ACTUAL_USER)
+USER_HOME="/home/mk"
 SOURCE_DIR="$USER_HOME/.dotfiles/config"
 
 create_symlinks() {
