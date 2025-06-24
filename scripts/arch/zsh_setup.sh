@@ -5,7 +5,8 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-USER_HOME=$(eval echo ~$ACTUAL_USER)
+USER_HOME="/home/mk"
+ACTUAL_USER="mk"
 
 if [ ! -d "$USER_HOME/.oh-my-zsh" ]; then
     echo "Installing Oh My Zsh..."
