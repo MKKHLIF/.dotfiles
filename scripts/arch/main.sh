@@ -13,8 +13,9 @@ echo "  / ___ \| | | (__| | | | | |___| | | | | |_| |>  < "
 echo " /_/   \_\_|  \___|_| |_| |_____|_|_| |_|\__,_/_/\_\\"
 echo -e "\e[0m"
 
+# Detect the real user who owns the dotfiles
 if [ "$EUID" -eq 0 ]; then
-    ACTUAL_USER=${SUDO_USER:-root}
+    ACTUAL_USER=${ACTUAL_USER:-$SUDO_USER}
 else
     ACTUAL_USER=$USER
 fi
@@ -58,3 +59,4 @@ print_section "Setting Up GRUB"
 
 print_section "Configuring SDDM Theme"
 "$SCRIPT_DIR/sddm.sh"
+
