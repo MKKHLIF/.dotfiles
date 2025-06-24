@@ -31,9 +31,8 @@ if ! command -v git >/dev/null 2>&1; then
     fi
 fi
 
-# Detect original user's home directory
-ACTUAL_USER=${SUDO_USER:-$USER}
-USER_HOME=$(getent passwd "$ACTUAL_USER" | cut -d: -f6)
+ACTUAL_USER="mk"
+USER_HOME="/home/mk"
 DOTFILES_DIR="$USER_HOME/.dotfiles"
 
 # Clean existing dotfiles dir if it exists
