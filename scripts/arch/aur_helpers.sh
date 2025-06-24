@@ -20,6 +20,6 @@ install_aur_helper() {
 }
 
 # Install AUR helpers (paru and yay)
-install_aur_helper "paru" "https://aur.archlinux.org/paru.git" "$ACTUAL_USER"
-install_aur_helper "yay" "https://aur.archlinux.org/yay.git" "$ACTUAL_USER"
+install_aur_helper "paru" "https://aur.archlinux.org/paru.git" "mk"
+install_aur_helper "yay" "https://aur.archlinux.org/yay.git" "mk"
 
