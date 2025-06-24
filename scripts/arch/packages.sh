@@ -6,7 +6,7 @@ core_packages=(
     networkmanager bluez bluez-utils xorg-server xorg-xinit xorg-xrandr arandr brightnessctl acpi upower
 )
 
-qtile_packages=(qtile python-psutil python-iwlib rofi dmenu picom nitrogen kitty dolphin dunst libnotify)
+qtile_packages=(qtile python-psutil python-iwlib rofi dmenu picom nitrogen kitty dolphin dunst libnotify lxappearance qt5ct qt6ct)
 dev_packages=(gcc make cmake nodejs npm yarn docker docker-compose wireshark-qt visual-studio-code-bin jetbrains-toolbox)
 virt_packages=(qemu-desktop libvirt virt-manager virt-viewer edk2-ovmf bridge-utils dnsmasq iptables-nft)
 font_packages=(ttf-jetbrains-mono ttf-dejavu ttf-liberation noto-fonts noto-fonts-emoji)
