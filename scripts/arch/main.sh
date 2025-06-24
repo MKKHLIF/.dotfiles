@@ -13,14 +13,6 @@ echo "  / ___ \| | | (__| | | | | |___| | | | | |_| |>  < "
 echo " /_/   \_\_|  \___|_| |_| |_____|_|_| |_|\__,_/_/\_\\"
 echo -e "\e[0m"
 
-# Detect the real user who owns the dotfiles (TO FIX)
-if [ "$EUID" -eq 0 ]; then
-    ACTUAL_USER=${ACTUAL_USER:-$SUDO_USER}
-else
-    ACTUAL_USER=$USER
-fi
-
-USER_HOME=$(getent passwd "$ACTUAL_USER" | cut -d: -f6)
 SCRIPT_DIR="/home/mk/.dotfiles/scripts/arch"
 
 print_section() {
@@ -28,7 +20,16 @@ print_section() {
 }
 
 print_section "Refreshing Mirrors"
-"$SCRIPT_DIR/refresh_mirrors.sh"
+echo -e "${GREEN}Do you want to refresh Arch mirrors before proceeding? (y/n)${NC}"
+read -r MIRROR_CHOICE
+if [[ "$MIRROR_CHOICE" =~ ^[Yy]$ ]]; then
+    if [ -x "$SCRIPT_DIR/refresh_mirrors.sh" ]; then
+        "$SCRIPT_DIR/refresh_mirrors.sh"
+    else
+        print_error "refresh_mirrors.sh not found or not executable."
+    fi
+fi
+
 
 print_section "Git Setup"
 "$SCRIPT_DIR/git_setup.sh"
