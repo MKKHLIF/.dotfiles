@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Detect the actual user, even if running with sudo
+if [ "$EUID" -eq 0 ]; then
+    ACTUAL_USER=${SUDO_USER:-root}
+else
+    ACTUAL_USER=$USER
+fi
+
 USER_HOME=$(eval echo ~$ACTUAL_USER)
 SOURCE_DIR="$USER_HOME/.dotfiles/config"
 
