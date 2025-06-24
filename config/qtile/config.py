@@ -15,6 +15,7 @@ def autostart():
         f"--output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off",
         shell=True
     )
+    subprocess.run("setxkbmap -layout us,ara -option grp:alt_shift_toggle", shell=True)
     subprocess.run("nitrogen --restore", shell=True)
     subprocess.run("picom &", shell=True)
     subprocess.Popen(["nm-applet"])
