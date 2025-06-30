@@ -76,6 +76,8 @@ keys = [
     Key([mod], "F1", lazy.spawn("pactl set-sink-mute @DEFAULT_SINK@ toggle"), desc="Mute"),
     Key([mod], "F2", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -5%"), desc="Volume down"),
     Key([mod], "F3", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +5%"), desc="Volume up"),
+    Key([], "Print", lazy.spawn("flameshot gui"), desc="Take screenshot with flameshot"),
+
 ]
 
 groups = [Group(i) for i in "123456789"]
