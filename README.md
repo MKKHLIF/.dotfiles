@@ -13,7 +13,7 @@
 
   <p align="center">
     <a href="#">
-      <img src="assets/wm.png" alt="desktop" title="desktop"/>
+      <img src="assets/wm2.png" alt="desktop" title="desktop"/>
     </a>
   </p>
   
