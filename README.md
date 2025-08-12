@@ -1,7 +1,5 @@
 <div align="center">
 
-  <img alt="Nix-Snowflake" src="assets/nix-snowflake-gruvbox.svg" width="120px"/>
-
   <h1><samp>MK's Dotfiles</samp></h1>
 
   ![GitHub Repo stars](https://img.shields.io/github/stars/MKKHLIF/.dotfiles?style=for-the-badge&labelColor=3c3836&color=d65d0e) 
