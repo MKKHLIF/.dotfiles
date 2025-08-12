@@ -34,8 +34,3 @@ curl -fsSL https://raw.githubusercontent.com/MKKHLIF/.dotfiles/main/setup.sh | s
 > Be sure to review the source packages and configuration options carefully before installing.
 
 ---
-
-## About
-
-A custom set of personal configurations designed for NixOS and Home-Manager, leveraging the capabilities of [flakes](https://nixos.wiki/wiki/Flakes).
-
